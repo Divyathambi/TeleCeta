@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "177624624995",
+    "project_id": "teleceta-5d828",
+    "storage_bucket": "teleceta-5d828.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:177624624995:android:27cf906c2efec188736d56",
+        "android_client_info": {
+          "package_name": "com.example.teleceta_patients"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "177624624995-l92d9dnlc475fss2qajp40epsk3445h7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.teleceta_patients",
+            "certificate_hash": "d70e2ca69ba7ebb9cba334559844cffcdc1434f2"
+          }
+        },
+        {
+          "client_id": "177624624995-201q1e0aiuhq6vchushq4k0h3nsbs20i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAy73OcdN7weaP-Fu7mjsFe2OcbpNLI730"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "177624624995-201q1e0aiuhq6vchushq4k0h3nsbs20i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

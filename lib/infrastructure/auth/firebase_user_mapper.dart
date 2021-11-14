@@ -3,8 +3,8 @@ import 'package:teleceta_patients/domain/auth/user.dart';
 import 'package:teleceta_patients/domain/core/value_objects.dart';
 
 extension FirebaseUserDomainX on firebase.User {
-  User toDomain() {
-    return User(
+  AppUser toDomain() {
+    return AppUser(
       uniqueId: UniqueId.fromUniqueString(uid)
     );
   }

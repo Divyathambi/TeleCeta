@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:firebase_auth/firebase_auth.dart' hide User;
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:injectable/injectable.dart';
@@ -17,7 +17,7 @@ class FirebaseAuthFacade implements IAuthFacade {
   FirebaseAuthFacade(this._firebaseAuth, this._googleSignIn);
 
   @override
-  Future<Option<User>> getSignedInUser() async => optionOf(_firebaseAuth.currentUser?.toDomain()); 
+  Future<Option<AppUser>> getSignedInUser() async => optionOf(_firebaseAuth.currentUser?.toDomain()); 
 
   @override
   Future<Either<AuthFailures, Unit>> loginWithEmailAndPassword({
@@ -53,6 +53,12 @@ class FirebaseAuthFacade implements IAuthFacade {
       final passwordStr = password!.getOrCrash(); 
 
       try {
+        User? user = _firebaseAuth.currentUser; 
+
+        if(user != null && !user.emailVerified) {
+          await user.sendEmailVerification();
+        }
+
         await _firebaseAuth.createUserWithEmailAndPassword(
           email: emailStr, 
           password: passwordStr

@@ -3,8 +3,8 @@ import 'package:teleceta_patients/domain/core/value_objects.dart';
 part 'user.freezed.dart';
 
 @freezed 
-class User with _$User {
-  const factory User({
+class AppUser with _$AppUser {
+  const factory AppUser({
     @required UniqueId? uniqueId, 
-  }) = _User;
+  }) = _AppUser;
 }

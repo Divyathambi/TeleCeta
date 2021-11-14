@@ -5,7 +5,7 @@ import 'package:teleceta_patients/domain/auth/user.dart';
 import 'package:teleceta_patients/domain/auth/value_objects.dart';
 
 abstract class IAuthFacade {
-  Future<Option<User>> getSignedInUser(); // To get the current user id
+  Future<Option<AppUser>> getSignedInUser(); // To get the current user id
   Future<Either<AuthFailures, Unit>> registerWithEmailAndPassword({
     @required EmailAddress emailAddress, 
     @required Password password

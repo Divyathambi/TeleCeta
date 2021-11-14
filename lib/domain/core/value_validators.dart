@@ -18,9 +18,8 @@ Either<ValueFailure<String>, String> validateEmailAddress(String input) {
 // should have at least 8 characters
 
 Either<ValueFailure<String>, String> validatePassword(String input) {
-  const regex = r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~])$'; 
-
-  if(RegExp(regex).hasMatch(input) && input.length >= 8) {
+  
+  if(input.length >= 8) {
     return right(input); 
   } else {
     return left(ValueFailure.invalidPassword(failedValue: input)); 
