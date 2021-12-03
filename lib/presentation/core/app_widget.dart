@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:teleceta_patients/application/auth/auth_bloc.dart';
 import 'package:teleceta_patients/injection.dart';
-import 'package:auto_route/auto_route.dart';
 import 'package:teleceta_patients/presentation/routes/app_router.gr.dart';
 
 class AppWidget extends StatelessWidget {

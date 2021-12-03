@@ -25,7 +25,7 @@ class SplashPage extends StatelessWidget {
       listener: (context, state) {
         state.map(
           initial: (_) {}, 
-          authenticated: (_) => AutoRouter.of(context).replace(const HomeRoute()), 
+          authenticated: (_) => AutoRouter.of(context).replace(const PatientFormPageRoute()), 
           unauthenticated: (_) => AutoRouter.of(context).replace(const CarouselMainPageRoute()),
         );
       },

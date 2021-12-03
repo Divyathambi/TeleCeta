@@ -35,10 +35,6 @@ class SignInForm extends StatelessWidget {
       color: Colors.grey
     );
 
-    const passwordHintTextStyle = TextStyle(
-      fontFamily: "NunitoRegular",
-      color: Color.fromRGBO(3, 4, 94, 1),
-    );
 
     return BlocConsumer<SignInFormBloc, SignInFormState>(
       listener: (context, state) {

@@ -13,4 +13,5 @@ extension FirestoreX on FirebaseFirestore {
            .collection('patients')
            .doc(patient.uniqueId!.getOrCrash());
   }
+  
 }

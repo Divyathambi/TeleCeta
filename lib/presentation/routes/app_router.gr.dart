@@ -12,7 +12,7 @@ import 'package:auto_route/auto_route.dart' as _i6;
 import 'package:flutter/material.dart' as _i7;
 
 import '../carousel_pages/carousel_main_page.dart' as _i2;
-import '../home/home.dart' as _i5;
+import '../patient/patient_form/patient_form_page.dart' as _i5;
 import '../sign_in/log_in_page.dart' as _i4;
 import '../sign_in/sign_in_page.dart' as _i3;
 import '../splash/splash_page.dart' as _i1;
@@ -39,9 +39,9 @@ class AppRouter extends _i6.RootStackRouter {
       return _i6.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i4.LoginPage());
     },
-    HomeRoute.name: (routeData) {
+    PatientFormPageRoute.name: (routeData) {
       return _i6.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i5.Home());
+          routeData: routeData, child: const _i5.PatientFormPage());
     }
   };
 
@@ -52,7 +52,7 @@ class AppRouter extends _i6.RootStackRouter {
             path: '/carousel-main-page'),
         _i6.RouteConfig(SignInPageRoute.name, path: '/sign-in-page'),
         _i6.RouteConfig(LoginPageRoute.name, path: '/login-page'),
-        _i6.RouteConfig(HomeRoute.name, path: '/Home')
+        _i6.RouteConfig(PatientFormPageRoute.name, path: '/patient-form-page')
       ];
 }
 
@@ -84,9 +84,9 @@ class LoginPageRoute extends _i6.PageRouteInfo<void> {
   static const String name = 'LoginPageRoute';
 }
 
-/// generated route for [_i5.Home]
-class HomeRoute extends _i6.PageRouteInfo<void> {
-  const HomeRoute() : super(name, path: '/Home');
+/// generated route for [_i5.PatientFormPage]
+class PatientFormPageRoute extends _i6.PageRouteInfo<void> {
+  const PatientFormPageRoute() : super(name, path: '/patient-form-page');
 
-  static const String name = 'HomeRoute';
+  static const String name = 'PatientFormPageRoute';
 }
