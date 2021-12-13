@@ -8,12 +8,10 @@ class PatientHeightFieldWidget extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    final textEditingController = useTextEditingController(); 
+    final textEditingController = useTextEditingController();
 
     return BlocListener<PatientFormBloc, PatientFormState>(
       listenWhen: (p, c) => p.isEditing != c.isEditing,
-
       listener: (context, state) {
         double heightController = double.parse(textEditingController.text);
 
@@ -28,9 +26,11 @@ class PatientHeightFieldWidget extends HookWidget {
             child: TextFormField(
               controller: textEditingController,
               decoration: const InputDecoration(
-                labelText: "Height", 
+                labelText: "Height",
               ),
-              onChanged: (value) => context.read<PatientFormBloc>().add(PatientFormEvent.heightChanged(double.parse(value))),
+              onChanged: (value) => context
+                  .read<PatientFormBloc>()
+                  .add(PatientFormEvent.heightChanged(double.parse(value))),
             ),
           ),
         ),

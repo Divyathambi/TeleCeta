@@ -4,15 +4,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:teleceta_patients/application/patient/patient_form/patient_form_bloc.dart';
 import 'package:teleceta_patients/injection.dart';
 import 'package:teleceta_patients/presentation/custom_widgets/custom_appbar.dart';
-import 'package:teleceta_patients/presentation/patient/patient_medical_form/widgets/patient_family_health_issue_field_widget.dart';
-import 'package:teleceta_patients/presentation/patient/patient_medical_form/widgets/patients_have_allergies_field_widget.dart';
-import 'package:teleceta_patients/presentation/patient/patient_medical_form/widgets/patients_have_chronic_illnesses_field_widget.dart';
-import 'package:teleceta_patients/presentation/patient/patient_medical_form/widgets/patients_have_injuries_field_widget.dart';
-import 'package:teleceta_patients/presentation/patient/patient_medical_form/widgets/patients_takes_medication_field_widget.dart';
-import 'package:teleceta_patients/presentation/patient/patient_medical_form/widgets/patients_was_hospitalized_field_widget.dart';
+import 'package:teleceta_patients/presentation/patient/patient_lifestyle_form/widgets/patient_alcohol_field_widget.dart';
+import 'package:teleceta_patients/presentation/patient/patient_lifestyle_form/widgets/patient_diet_field_widget.dart';
+import 'package:teleceta_patients/presentation/patient/patient_lifestyle_form/widgets/patient_occupation_field_widget.dart';
+import 'package:teleceta_patients/presentation/patient/patient_lifestyle_form/widgets/patient_smoke_field_widget.dart';
+import 'package:teleceta_patients/presentation/patient/patient_lifestyle_form/widgets/patient_stress_field_widget.dart';
+import 'package:teleceta_patients/presentation/patient/patient_lifestyle_form/widgets/patient_workout_field_widget.dart';
 
-class PatientMedicalFormPage extends StatelessWidget {
-  const PatientMedicalFormPage({Key? key}) : super(key: key);
+class PatientLifestyleFormPage extends StatelessWidget {
+  const PatientLifestyleFormPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -37,15 +37,15 @@ class PatientMedicalFormPage extends StatelessWidget {
         },
         buildWhen: (p, c) => p.isSaving != c.isSaving,
         builder: (context, state) {
-          return const PatientMedicalFormScaffold();
+          return const PatientLifestyleFormScaffold();
         },
       ),
     );
   }
 }
 
-class PatientMedicalFormScaffold extends StatelessWidget {
-  const PatientMedicalFormScaffold({Key? key}) : super(key: key);
+class PatientLifestyleFormScaffold extends StatelessWidget {
+  const PatientLifestyleFormScaffold({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -61,30 +61,28 @@ class PatientMedicalFormScaffold extends StatelessWidget {
     );
 
     return Scaffold(
-      appBar: CustomAppBar('TeleCeta'),
-      body: BlocBuilder<PatientFormBloc, PatientFormState>(
+        appBar: CustomAppBar("TeleCeta"),
+        body: BlocBuilder<PatientFormBloc, PatientFormState>(
           buildWhen: (p, c) => p.showErrorMessages != c.showErrorMessages,
           builder: (context, state) {
             return Form(
                 autovalidateMode: AutovalidateMode.disabled,
                 child: SingleChildScrollView(
-                    child: Center(
-                  child: Column(
-                    children: <Widget>[
+                  child: Center(
+                    child: Column(children: [
                       const Padding(
                         padding: EdgeInsets.fromLTRB(30, 30, 30, 10),
                         child: Text(
-                          "Perfect! Now let's add some details regarding your medical conditions.",
-                          style: textStyle,
-                          textAlign: TextAlign.center,
-                        ),
+                            "Add some details about your lifestyle and we're ready!",
+                            style: textStyle,
+                            textAlign: TextAlign.center),
                       ),
-                      const PatientsHaveAllergiesFieldWidget(),
-                      const PatientTakesMedicationFieldWidget(),
-                      const PatientsHaveInjuriesFieldWidget(),
-                      const PatientsHaveChronicIllnessesFieldWidget(),
-                      const PatientsWasHospitalizedFieldWidget(),
-                      const PatientFamilyHealthIssueFieldWidget(),
+                      const PatientOccupationFieldWidget(),
+                      const PatientWorkoutFieldWidget(),
+                      const PatientStressFieldWidget(),
+                      const PatientDietFieldWidget(),
+                      const PatientAlcoholFieldWidget(),
+                      const PatientSmokeFieldWidget(),
                       const SizedBox(
                         height: 30,
                       ),
@@ -102,10 +100,10 @@ class PatientMedicalFormScaffold extends StatelessWidget {
                         child: const Text('Save', style: buttonTextStyle),
                       ),
                       const SizedBox(height: 100)
-                    ],
+                    ]),
                   ),
-                )));
-          }),
-    );
+                ));
+          },
+        ));
   }
 }

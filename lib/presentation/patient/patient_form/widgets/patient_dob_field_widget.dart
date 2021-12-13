@@ -13,13 +13,11 @@ class PatientDobFieldWidget extends StatefulWidget {
 }
 
 class _PatientDobFieldWidgetState extends State<PatientDobFieldWidget> {
+  DateTime? dateTime;
+  TextEditingController selectDateController = TextEditingController();
 
-  DateTime? dateTime; 
-  TextEditingController selectDateController =  TextEditingController();
-  
   @override
   Widget build(BuildContext context) {
-
     return BlocListener<PatientFormBloc, PatientFormState>(
       listener: (context, state) {
         dateTime = state.patient!.dateOfBirth!;
@@ -27,7 +25,7 @@ class _PatientDobFieldWidgetState extends State<PatientDobFieldWidget> {
       child: Padding(
         padding: const EdgeInsets.all(20.0),
         child: TextFormField(
-          controller: selectDateController, 
+          controller: selectDateController,
           decoration: InputDecoration(
             suffixIcon: IconButton(
               icon: const Icon(
@@ -36,7 +34,9 @@ class _PatientDobFieldWidgetState extends State<PatientDobFieldWidget> {
               ),
               onPressed: () {
                 _selectDate(context);
-                context.read<PatientFormBloc>().add(PatientFormEvent.dateOfBirthChanged(dateTime!));
+                context
+                    .read<PatientFormBloc>()
+                    .add(PatientFormEvent.dateOfBirthChanged(dateTime!));
               },
             ),
             labelText: "Date of Birth",
@@ -48,18 +48,18 @@ class _PatientDobFieldWidgetState extends State<PatientDobFieldWidget> {
 
   _selectDate(BuildContext context) async {
     DateTime? selectedDate = await showRoundedDatePicker(
-                  firstDate: DateTime(1900),
-                  lastDate: DateTime(2300),
-                  initialDate: DateTime.now(),
-                  initialDatePickerMode: DatePickerMode.year,
-                  fontFamily: "NunitoSemiBold",
-                  description: "Please select your date of birth",
-                  background: const Color.fromRGBO(3, 4, 94, 1),
-                  context: context,
-                );
+      firstDate: DateTime(1900),
+      lastDate: DateTime(2300),
+      initialDate: DateTime.now(),
+      initialDatePickerMode: DatePickerMode.year,
+      fontFamily: "NunitoSemiBold",
+      description: "Please select your date of birth",
+      background: const Color.fromRGBO(3, 4, 94, 1),
+      context: context,
+    );
 
     if (selectedDate != null) {
-      dateTime = selectedDate; 
+      dateTime = selectedDate;
       selectDateController.text = DateFormat.yMMMd().format(selectedDate);
     }
   }

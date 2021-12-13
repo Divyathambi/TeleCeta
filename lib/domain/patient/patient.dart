@@ -4,80 +4,76 @@ import 'package:teleceta_patients/domain/core/value_objects.dart';
 part 'patient.freezed.dart';
 
 @freezed
-abstract class Patient implements _$Patient{
-  const Patient._(); 
+abstract class Patient implements _$Patient {
+  const Patient._();
 
-  const factory Patient({
+  const factory Patient(
+      {
 
-    // patient basic details
+      // patient basic details
 
-    @required UniqueId? id, 
-    @required String? name,
-    @required String? emailAddress, 
-    @required String? phoneNumber, 
-    @required String? gender, 
-    @required DateTime? dateOfBirth, 
-    @required String? bloodGroup, 
-    @required double? height, 
-    @required double? weight, 
-    @required String? location,
+      @required UniqueId? id,
+      @required String? name,
+      @required String? emailAddress,
+      @required String? phoneNumber,
+      @required String? gender,
+      @required DateTime? dateOfBirth,
+      @required String? bloodGroup,
+      @required double? height,
+      @required double? weight,
+      @required String? location,
 
-    // patient medical details 
+      // patient medical details
 
-    @required bool? haveAllergies, 
-    @required List<String>? allergies, 
-    @required bool? takesMedication, 
-    @required List<String>? medications, 
-    @required bool? haveInjuries, 
-    @required bool? haveChronicIllnesses,
-    @required bool? wasHospitalized, 
-    @required List<String>? injuries, 
-    @required bool? familyHealthIssue, 
+      @required bool? haveAllergies,
+      @required List<String>? allergies,
+      @required bool? takesMedication,
+      @required List<String>? medications,
+      @required bool? haveInjuries,
+      @required bool? haveChronicIllnesses,
+      @required bool? wasHospitalized,
+      @required List<String>? injuries,
+      @required bool? familyHealthIssue,
 
-    // patient lifestyle details
+      // patient lifestyle details
 
-    @required String? occupation, 
-    @required String? workout, 
-    @required String? stress, 
-    @required String? diet, 
-    @required String? alcohol, 
-    @required String? smoke
+      @required String? occupation,
+      @required String? workout,
+      @required String? stress,
+      @required String? diet,
+      @required String? alcohol,
+      @required String? smoke}) = _Patient;
 
-  }) = _Patient;
+  factory Patient.empty() => Patient(
+      id: UniqueId(),
+      name: '',
+      emailAddress: '',
+      phoneNumber: '',
+      gender: '',
+      dateOfBirth: DateTime.now(),
+      bloodGroup: '',
+      height: 0,
+      weight: 0,
+      location: '',
 
-  factory Patient.empty() =>  Patient(
+      // patient medical details
 
-    id: UniqueId(), 
-    name: '', 
-    emailAddress: '', 
-    phoneNumber: '', 
-    gender: '', 
-    dateOfBirth: DateTime.now(), 
-    bloodGroup: '', 
-    height: 0, 
-    weight: 0, 
-    location: '', 
+      haveAllergies: false,
+      allergies: [],
+      takesMedication: false,
+      medications: [],
+      haveInjuries: false,
+      haveChronicIllnesses: false,
+      wasHospitalized: false,
+      injuries: [],
+      familyHealthIssue: false,
 
-    // patient medical details
+      // patient lifestyle details
 
-    haveAllergies: false, 
-    allergies: [], 
-    takesMedication: false, 
-    medications: [], 
-    haveInjuries: false, 
-    haveChronicIllnesses: false, 
-    wasHospitalized: false, 
-    injuries: [], 
-    familyHealthIssue: false, 
-
-    // patient lifestyle details 
-
-    occupation: '', 
-    workout: '', 
-    stress: '', 
-    diet: '', 
-    alcohol: '', 
-    smoke: ''
-  );
-
+      occupation: '',
+      workout: '',
+      stress: '',
+      diet: '',
+      alcohol: '',
+      smoke: '');
 }
