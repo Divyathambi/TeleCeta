@@ -6,7 +6,7 @@ import 'package:teleceta_patients/domain/patient/patient.dart';
 part 'appointment.freezed.dart';
 
 @freezed
-abstract class Appointment with _$Appointment {
+class Appointment with _$Appointment {
   const Appointment._();
 
   const factory Appointment(

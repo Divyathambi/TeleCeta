@@ -1,10 +1,11 @@
 import 'package:dartz/dartz.dart';
+import 'package:teleceta_patients/domain/doctor/appointment.dart';
 import 'package:teleceta_patients/domain/doctor/doctor.dart';
 import 'package:teleceta_patients/domain/doctor/doctor_failures.dart';
 
 abstract class IDoctorRepository {
   Stream<Either<DoctorFailures, List<Doctor>>> watchAllDoctors();
-  Stream<Either<DoctorFailures, Doctor>> watchDoctor();
+  // Stream<Either<DoctorFailures, Doctor>> watchDoctor();
   Stream<Either<DoctorFailures, List<Doctor>>> watchAllPediatrics();
   Stream<Either<DoctorFailures, List<Doctor>>> watchAllDermatologists();
   Stream<Either<DoctorFailures, List<Doctor>>> watchAllGynaecologists();
@@ -29,6 +30,12 @@ abstract class IDoctorRepository {
   Stream<Either<DoctorFailures, List<Doctor>>> watchAllOsteopaths();
   Stream<Either<DoctorFailures, List<Doctor>>> watchAllEnts();
   Stream<Either<DoctorFailures, List<Doctor>>> watchAllPodiatrists();
-  Stream<Either<DoctorFailures, List<Doctor>>> watchAllDoctorsByLocation();
-  Stream<Either<DoctorFailures, List<Doctor>>> watchAllDoctorsByAvailableDays();
+  Stream<Either<DoctorFailures, List<Appointment>>> watchAllAppointments();
+  // Stream<Either<DoctorFailures, Appointment>> watchAppointment();
+  Future<Either<DoctorFailures, Unit>> createAppointment(
+      Appointment appointment);
+  Future<Either<DoctorFailures, Unit>> updateAppointment(
+      Appointment appointment);
+  Future<Either<DoctorFailures, Unit>> deleteAppointment(
+      Appointment appointment);
 }
