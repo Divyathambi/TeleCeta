@@ -27,7 +27,7 @@ class DoctorWatcherBloc extends Bloc<DoctorWatcherEvent, DoctorWatcherState> {
 
         await _doctorStreamSubscription?.cancel();
 
-        _doctorStreamSubscription = _doctorRepository.watchAllDoctors().listen(
+        _doctorStreamSubscription = _doctorRepository.watchAllDoctors()!.listen(
             (failureOrDoctors) =>
                 add(DoctorWatcherEvent.doctorsReceived(failureOrDoctors)));
       }, watchAllPediatricsStarted: (e) async {
@@ -36,7 +36,7 @@ class DoctorWatcherBloc extends Bloc<DoctorWatcherEvent, DoctorWatcherState> {
         await _doctorStreamSubscription?.cancel();
 
         _doctorStreamSubscription = _doctorRepository
-            .watchAllPediatrics()
+            .watchAllPediatrics()!
             .listen((failureOrDoctors) =>
                 add(DoctorWatcherEvent.doctorsReceived(failureOrDoctors)));
       }, watchAllDermatologistsStarted: (e) async {
@@ -45,7 +45,7 @@ class DoctorWatcherBloc extends Bloc<DoctorWatcherEvent, DoctorWatcherState> {
         await _doctorStreamSubscription?.cancel();
 
         _doctorStreamSubscription = _doctorRepository
-            .watchAllDermatologists()
+            .watchAllDermatologists()!
             .listen((failureOrDoctors) =>
                 add(DoctorWatcherEvent.doctorsReceived(failureOrDoctors)));
       }, watchAllGynaecologistsStarted: (e) async {
@@ -54,7 +54,7 @@ class DoctorWatcherBloc extends Bloc<DoctorWatcherEvent, DoctorWatcherState> {
         await _doctorStreamSubscription?.cancel();
 
         _doctorStreamSubscription = _doctorRepository
-            .watchAllGynaecologists()
+            .watchAllGynaecologists()!
             .listen((failureOrDoctors) =>
                 add(DoctorWatcherEvent.doctorsReceived(failureOrDoctors)));
       }, watchAllOrthopaedicsStarted: (e) async {
@@ -63,7 +63,7 @@ class DoctorWatcherBloc extends Bloc<DoctorWatcherEvent, DoctorWatcherState> {
         await _doctorStreamSubscription?.cancel();
 
         _doctorStreamSubscription = _doctorRepository
-            .watchAllOrthopaedics()
+            .watchAllOrthopaedics()!
             .listen((failureOrDoctors) =>
                 add(DoctorWatcherEvent.doctorsReceived(failureOrDoctors)));
       }, watchAllRadiologistsStarted: (e) async {
@@ -72,7 +72,7 @@ class DoctorWatcherBloc extends Bloc<DoctorWatcherEvent, DoctorWatcherState> {
         await _doctorStreamSubscription?.cancel();
 
         _doctorStreamSubscription = _doctorRepository
-            .watchAllRadiologists()
+            .watchAllRadiologists()!
             .listen((failureOrDoctors) =>
                 add(DoctorWatcherEvent.doctorsReceived(failureOrDoctors)));
       }, watchAllOncologistsStarted: (e) async {
@@ -81,7 +81,7 @@ class DoctorWatcherBloc extends Bloc<DoctorWatcherEvent, DoctorWatcherState> {
         await _doctorStreamSubscription?.cancel();
 
         _doctorStreamSubscription = _doctorRepository
-            .watchAllOncologists()
+            .watchAllOncologists()!
             .listen((failureOrDoctors) =>
                 add(DoctorWatcherEvent.doctorsReceived(failureOrDoctors)));
       }, watchAllUrologistsStarted: (e) async {
@@ -90,7 +90,7 @@ class DoctorWatcherBloc extends Bloc<DoctorWatcherEvent, DoctorWatcherState> {
         await _doctorStreamSubscription?.cancel();
 
         _doctorStreamSubscription = _doctorRepository
-            .watchAllUrologists()
+            .watchAllUrologists()!
             .listen((failureOrDoctors) =>
                 add(DoctorWatcherEvent.doctorsReceived(failureOrDoctors)));
       }, watchAllCardiologistsStarted: (e) async {
@@ -99,7 +99,7 @@ class DoctorWatcherBloc extends Bloc<DoctorWatcherEvent, DoctorWatcherState> {
         await _doctorStreamSubscription?.cancel();
 
         _doctorStreamSubscription = _doctorRepository
-            .watchAllCardiologists()
+            .watchAllCardiologists()!
             .listen((failureOrDoctors) =>
                 add(DoctorWatcherEvent.doctorsReceived(failureOrDoctors)));
       }, watchAllOphthalmologistsStarted: (e) async {
@@ -108,7 +108,7 @@ class DoctorWatcherBloc extends Bloc<DoctorWatcherEvent, DoctorWatcherState> {
         await _doctorStreamSubscription?.cancel();
 
         _doctorStreamSubscription = _doctorRepository
-            .watchAllOphthalmologists()
+            .watchAllOphthalmologists()!
             .listen((failureOrDoctors) =>
                 add(DoctorWatcherEvent.doctorsReceived(failureOrDoctors)));
       }, watchAllFamilyMedicineDoctorsStarted: (e) async {
@@ -117,7 +117,7 @@ class DoctorWatcherBloc extends Bloc<DoctorWatcherEvent, DoctorWatcherState> {
         await _doctorStreamSubscription?.cancel();
 
         _doctorStreamSubscription = _doctorRepository
-            .watchAllFamilyMedicineDoctors()
+            .watchAllFamilyMedicineDoctors()!
             .listen((failureOrDoctors) =>
                 add(DoctorWatcherEvent.doctorsReceived(failureOrDoctors)));
       }, watchAllNeurologistsStarted: (e) async {
@@ -126,7 +126,7 @@ class DoctorWatcherBloc extends Bloc<DoctorWatcherEvent, DoctorWatcherState> {
         await _doctorStreamSubscription?.cancel();
 
         _doctorStreamSubscription = _doctorRepository
-            .watchAllNeurologists()
+            .watchAllNeurologists()!
             .listen((failureOrDoctors) =>
                 add(DoctorWatcherEvent.doctorsReceived(failureOrDoctors)));
       }, watchAllGeneralPhysiciansStarted: (e) async {
@@ -135,7 +135,7 @@ class DoctorWatcherBloc extends Bloc<DoctorWatcherEvent, DoctorWatcherState> {
         await _doctorStreamSubscription?.cancel();
 
         _doctorStreamSubscription = _doctorRepository
-            .watchAllGeneralPhysicians()
+            .watchAllGeneralPhysicians()!
             .listen((failureOrDoctors) =>
                 add(DoctorWatcherEvent.doctorsReceived(failureOrDoctors)));
       }, watchAllPsychiatristsStarted: (e) async {
@@ -144,7 +144,7 @@ class DoctorWatcherBloc extends Bloc<DoctorWatcherEvent, DoctorWatcherState> {
         await _doctorStreamSubscription?.cancel();
 
         _doctorStreamSubscription = _doctorRepository
-            .watchAllPsychiatrists()
+            .watchAllPsychiatrists()!
             .listen((failureOrDoctors) =>
                 add(DoctorWatcherEvent.doctorsReceived(failureOrDoctors)));
       }, watchAllPlasticSurgeonsStarted: (e) async {
@@ -153,7 +153,7 @@ class DoctorWatcherBloc extends Bloc<DoctorWatcherEvent, DoctorWatcherState> {
         await _doctorStreamSubscription?.cancel();
 
         _doctorStreamSubscription = _doctorRepository
-            .watchAllPlasticSurgeons()
+            .watchAllPlasticSurgeons()!
             .listen((failureOrDoctors) =>
                 add(DoctorWatcherEvent.doctorsReceived(failureOrDoctors)));
       }, watchAllEndocrinologistsStarted: (e) async {
@@ -162,7 +162,7 @@ class DoctorWatcherBloc extends Bloc<DoctorWatcherEvent, DoctorWatcherState> {
         await _doctorStreamSubscription?.cancel();
 
         _doctorStreamSubscription = _doctorRepository
-            .watchAllEndocrinologists()
+            .watchAllEndocrinologists()!
             .listen((failureOrDoctors) =>
                 add(DoctorWatcherEvent.doctorsReceived(failureOrDoctors)));
       }, watchAllGastroenterologistsStarted: (e) async {
@@ -171,7 +171,7 @@ class DoctorWatcherBloc extends Bloc<DoctorWatcherEvent, DoctorWatcherState> {
         await _doctorStreamSubscription?.cancel();
 
         _doctorStreamSubscription = _doctorRepository
-            .watchAllGastroenterologists()
+            .watchAllGastroenterologists()!
             .listen((failureOrDoctors) =>
                 add(DoctorWatcherEvent.doctorsReceived(failureOrDoctors)));
       }, watchAllNeuroSurgeonsStarted: (e) async {
@@ -180,7 +180,7 @@ class DoctorWatcherBloc extends Bloc<DoctorWatcherEvent, DoctorWatcherState> {
         await _doctorStreamSubscription?.cancel();
 
         _doctorStreamSubscription = _doctorRepository
-            .watchAllNeuroSurgeons()
+            .watchAllNeuroSurgeons()!
             .listen((failureOrDoctors) =>
                 add(DoctorWatcherEvent.doctorsReceived(failureOrDoctors)));
       }, watchAllPulmonologistsStarted: (e) async {
@@ -189,7 +189,7 @@ class DoctorWatcherBloc extends Bloc<DoctorWatcherEvent, DoctorWatcherState> {
         await _doctorStreamSubscription?.cancel();
 
         _doctorStreamSubscription = _doctorRepository
-            .watchAllPulmonologists()
+            .watchAllPulmonologists()!
             .listen((failureOrDoctors) =>
                 add(DoctorWatcherEvent.doctorsReceived(failureOrDoctors)));
       }, watchAllRheumatologistsStarted: (e) async {
@@ -198,7 +198,7 @@ class DoctorWatcherBloc extends Bloc<DoctorWatcherEvent, DoctorWatcherState> {
         await _doctorStreamSubscription?.cancel();
 
         _doctorStreamSubscription = _doctorRepository
-            .watchAllRheumatologists()
+            .watchAllRheumatologists()!
             .listen((failureOrDoctors) =>
                 add(DoctorWatcherEvent.doctorsReceived(failureOrDoctors)));
       }, watchAllGeriatricsStarted: (e) async {
@@ -207,7 +207,7 @@ class DoctorWatcherBloc extends Bloc<DoctorWatcherEvent, DoctorWatcherState> {
         await _doctorStreamSubscription?.cancel();
 
         _doctorStreamSubscription = _doctorRepository
-            .watchAllGeriatrics()
+            .watchAllGeriatrics()!
             .listen((failureOrDoctors) =>
                 add(DoctorWatcherEvent.doctorsReceived(failureOrDoctors)));
       }, watchAllDentistsStarted: (e) async {
@@ -215,8 +215,9 @@ class DoctorWatcherBloc extends Bloc<DoctorWatcherEvent, DoctorWatcherState> {
 
         await _doctorStreamSubscription?.cancel();
 
-        _doctorStreamSubscription = _doctorRepository.watchAllDentists().listen(
-            (failureOrDoctors) =>
+        _doctorStreamSubscription = _doctorRepository
+            .watchAllDentists()!
+            .listen((failureOrDoctors) =>
                 add(DoctorWatcherEvent.doctorsReceived(failureOrDoctors)));
       }, watchAllOsteopathsStarted: (e) async {
         emit(const DoctorWatcherState.loadInProgress());
@@ -224,7 +225,7 @@ class DoctorWatcherBloc extends Bloc<DoctorWatcherEvent, DoctorWatcherState> {
         await _doctorStreamSubscription?.cancel();
 
         _doctorStreamSubscription = _doctorRepository
-            .watchAllOsteopaths()
+            .watchAllOsteopaths()!
             .listen((failureOrDoctors) =>
                 add(DoctorWatcherEvent.doctorsReceived(failureOrDoctors)));
       }, watchAllEntsStarted: (e) async {
@@ -232,7 +233,7 @@ class DoctorWatcherBloc extends Bloc<DoctorWatcherEvent, DoctorWatcherState> {
 
         await _doctorStreamSubscription?.cancel();
 
-        _doctorStreamSubscription = _doctorRepository.watchAllEnts().listen(
+        _doctorStreamSubscription = _doctorRepository.watchAllEnts()!.listen(
             (failureOrDoctors) =>
                 add(DoctorWatcherEvent.doctorsReceived(failureOrDoctors)));
       }, watchAllPodiatristsStarted: (e) async {
@@ -241,7 +242,7 @@ class DoctorWatcherBloc extends Bloc<DoctorWatcherEvent, DoctorWatcherState> {
         await _doctorStreamSubscription?.cancel();
 
         _doctorStreamSubscription = _doctorRepository
-            .watchAllPodiatrists()
+            .watchAllPodiatrists()!
             .listen((failureOrDoctors) =>
                 add(DoctorWatcherEvent.doctorsReceived(failureOrDoctors)));
       }, doctorsReceived: (e) async {
@@ -252,7 +253,7 @@ class DoctorWatcherBloc extends Bloc<DoctorWatcherEvent, DoctorWatcherState> {
 
     @override
     Future<void> close() async {
-      await _doctorStreamSubscription?.cancel();
+      await _doctorStreamSubscription!.cancel();
       return super.close();
     }
   }

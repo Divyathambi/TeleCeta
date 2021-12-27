@@ -23,7 +23,8 @@ class AppointmentActorBloc
         final possibleFailure =
             await _doctorRepository.deleteAppointment(event.appointment);
 
-        emit(possibleFailure.fold((f) => AppointmentActorState.deleteFailure(f),
+        emit(possibleFailure!.fold(
+            (f) => AppointmentActorState.deleteFailure(f),
             (_) => const AppointmentActorState.deleteSuccess()));
       });
     });

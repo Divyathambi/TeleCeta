@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:injectable/injectable.dart';
 import 'package:teleceta_patients/domain/doctor/doctor_failures.dart';
@@ -12,7 +14,7 @@ import 'package:teleceta_patients/infrastructure/doctor/doctor_dto.dart';
 
 @LazySingleton(as: IDoctorRepository)
 class DoctorRepository implements IDoctorRepository {
-  final FirebaseFirestore _firestore;
+  final FirebaseFirestore? _firestore;
 
   DoctorRepository(this._firestore);
 
@@ -20,8 +22,8 @@ class DoctorRepository implements IDoctorRepository {
   Future<Either<DoctorFailures, Unit>> createAppointment(
       Appointment appointment) async {
     try {
-      final patientDoc = await _firestore.patientDocument();
-      final doctorDoc = await _firestore.doctorDocument();
+      final patientDoc = await _firestore!.patientDocument();
+      final doctorDoc = await _firestore!.doctorDocument();
       final appointmentDto = AppointmentDto.fromDomain(appointment);
 
       await patientDoc.appointmentCollection
@@ -44,7 +46,7 @@ class DoctorRepository implements IDoctorRepository {
   Future<Either<DoctorFailures, Unit>> deleteAppointment(
       Appointment appointment) async {
     try {
-      final patientDoc = await _firestore.patientDocument();
+      final patientDoc = await _firestore!.patientDocument();
       final appointmentId = appointment.id!.getOrCrash();
 
       await patientDoc.appointmentCollection.doc(appointmentId).delete();
@@ -62,8 +64,8 @@ class DoctorRepository implements IDoctorRepository {
   Future<Either<DoctorFailures, Unit>> updateAppointment(
       Appointment appointment) async {
     try {
-      final patientDoc = await _firestore.patientDocument();
-      final doctorDoc = await _firestore.doctorDocument();
+      final patientDoc = await _firestore!.patientDocument();
+      final doctorDoc = await _firestore!.doctorDocument();
       final appointmentDto = AppointmentDto.fromDomain(appointment);
 
       await patientDoc.appointmentCollection
@@ -85,7 +87,7 @@ class DoctorRepository implements IDoctorRepository {
   @override
   Stream<Either<DoctorFailures, List<Appointment>>>
       watchAllAppointments() async* {
-    final patientDoc = await _firestore.patientDocument();
+    final patientDoc = await _firestore!.patientDocument();
 
     yield* patientDoc.appointmentCollection
         .snapshots()
@@ -103,10 +105,10 @@ class DoctorRepository implements IDoctorRepository {
   }
 
   @override
-  Stream<Either<DoctorFailures, List<Doctor>>> watchAllCardiologists() async* {
-    final doctorsCollection = _firestore.collection('doctors');
+  Stream<Either<DoctorFailures, List<Doctor>>>? watchAllCardiologists() async* {
+    CollectionReference doctors = _firestore!.collection('doctors');
 
-    yield* doctorsCollection
+    yield* doctors
         .snapshots()
         .map((snapshot) =>
             snapshot.docs.map((doc) => DoctorDto.fromFirestore(doc).toDomain()))
@@ -117,6 +119,7 @@ class DoctorRepository implements IDoctorRepository {
       if (e is FirebaseException && e.message!.contains('PERMISSION_DENIED')) {
         return left(const DoctorFailures.insufficientPermissions());
       } else {
+        print(e.toString());
         return left(const DoctorFailures.unexpected());
       }
     });
@@ -124,9 +127,9 @@ class DoctorRepository implements IDoctorRepository {
 
   @override
   Stream<Either<DoctorFailures, List<Doctor>>> watchAllDentists() async* {
-    final doctorsCollection = _firestore.collection('doctors');
+    CollectionReference doctors = _firestore!.collection('doctors');
 
-    yield* doctorsCollection
+    yield* doctors
         .snapshots()
         .map((snapshot) =>
             snapshot.docs.map((doc) => DoctorDto.fromFirestore(doc).toDomain()))
@@ -143,9 +146,9 @@ class DoctorRepository implements IDoctorRepository {
 
   @override
   Stream<Either<DoctorFailures, List<Doctor>>> watchAllDermatologists() async* {
-    final doctorsCollection = _firestore.collection('doctors');
+    CollectionReference doctors = _firestore!.collection('doctors');
 
-    yield* doctorsCollection
+    yield* doctors
         .snapshots()
         .map((snapshot) =>
             snapshot.docs.map((doc) => DoctorDto.fromFirestore(doc).toDomain()))
@@ -163,9 +166,9 @@ class DoctorRepository implements IDoctorRepository {
 
   @override
   Stream<Either<DoctorFailures, List<Doctor>>> watchAllDoctors() async* {
-    final doctorsCollection = _firestore.collection('doctors');
+    CollectionReference doctors = _firestore!.collection('doctors');
 
-    yield* doctorsCollection
+    yield* doctors
         .snapshots()
         .map((snapshot) => right<DoctorFailures, List<Doctor>>(snapshot.docs
             .map((doc) => DoctorDto.fromFirestore(doc).toDomain())
@@ -182,9 +185,9 @@ class DoctorRepository implements IDoctorRepository {
   @override
   Stream<Either<DoctorFailures, List<Doctor>>>
       watchAllEndocrinologists() async* {
-    final doctorsCollection = _firestore.collection('doctors');
+    CollectionReference doctors = _firestore!.collection('doctors');
 
-    yield* doctorsCollection
+    yield* doctors
         .snapshots()
         .map((snapshot) =>
             snapshot.docs.map((doc) => DoctorDto.fromFirestore(doc).toDomain()))
@@ -202,9 +205,9 @@ class DoctorRepository implements IDoctorRepository {
 
   @override
   Stream<Either<DoctorFailures, List<Doctor>>> watchAllEnts() async* {
-    final doctorsCollection = _firestore.collection('doctors');
+    CollectionReference doctors = _firestore!.collection('doctors');
 
-    yield* doctorsCollection
+    yield* doctors
         .snapshots()
         .map((snapshot) =>
             snapshot.docs.map((doc) => DoctorDto.fromFirestore(doc).toDomain()))
@@ -222,9 +225,9 @@ class DoctorRepository implements IDoctorRepository {
   @override
   Stream<Either<DoctorFailures, List<Doctor>>>
       watchAllFamilyMedicineDoctors() async* {
-    final doctorsCollection = _firestore.collection('doctors');
+    CollectionReference doctors = _firestore!.collection('doctors');
 
-    yield* doctorsCollection
+    yield* doctors
         .snapshots()
         .map((snapshot) =>
             snapshot.docs.map((doc) => DoctorDto.fromFirestore(doc).toDomain()))
@@ -243,9 +246,9 @@ class DoctorRepository implements IDoctorRepository {
   @override
   Stream<Either<DoctorFailures, List<Doctor>>>
       watchAllGastroenterologists() async* {
-    final doctorsCollection = _firestore.collection('doctors');
+    CollectionReference doctors = _firestore!.collection('doctors');
 
-    yield* doctorsCollection
+    yield* doctors
         .snapshots()
         .map((snapshot) =>
             snapshot.docs.map((doc) => DoctorDto.fromFirestore(doc).toDomain()))
@@ -264,9 +267,9 @@ class DoctorRepository implements IDoctorRepository {
   @override
   Stream<Either<DoctorFailures, List<Doctor>>>
       watchAllGeneralPhysicians() async* {
-    final doctorsCollection = _firestore.collection('doctors');
+    CollectionReference doctors = _firestore!.collection('doctors');
 
-    yield* doctorsCollection
+    yield* doctors
         .snapshots()
         .map((snapshot) =>
             snapshot.docs.map((doc) => DoctorDto.fromFirestore(doc).toDomain()))
@@ -284,9 +287,9 @@ class DoctorRepository implements IDoctorRepository {
 
   @override
   Stream<Either<DoctorFailures, List<Doctor>>> watchAllGeriatrics() async* {
-    final doctorsCollection = _firestore.collection('doctors');
+    CollectionReference doctors = _firestore!.collection('doctors');
 
-    yield* doctorsCollection
+    yield* doctors
         .snapshots()
         .map((snapshot) =>
             snapshot.docs.map((doc) => DoctorDto.fromFirestore(doc).toDomain()))
@@ -304,9 +307,9 @@ class DoctorRepository implements IDoctorRepository {
 
   @override
   Stream<Either<DoctorFailures, List<Doctor>>> watchAllGynaecologists() async* {
-    final doctorsCollection = _firestore.collection('doctors');
+    CollectionReference doctors = _firestore!.collection('doctors');
 
-    yield* doctorsCollection
+    yield* doctors
         .snapshots()
         .map((snapshot) =>
             snapshot.docs.map((doc) => DoctorDto.fromFirestore(doc).toDomain()))
@@ -324,9 +327,9 @@ class DoctorRepository implements IDoctorRepository {
 
   @override
   Stream<Either<DoctorFailures, List<Doctor>>> watchAllNeuroSurgeons() async* {
-    final doctorsCollection = _firestore.collection('doctors');
+    CollectionReference doctors = _firestore!.collection('doctors');
 
-    yield* doctorsCollection
+    yield* doctors
         .snapshots()
         .map((snapshot) =>
             snapshot.docs.map((doc) => DoctorDto.fromFirestore(doc).toDomain()))
@@ -344,9 +347,9 @@ class DoctorRepository implements IDoctorRepository {
 
   @override
   Stream<Either<DoctorFailures, List<Doctor>>> watchAllNeurologists() async* {
-    final doctorsCollection = _firestore.collection('doctors');
+    CollectionReference doctors = _firestore!.collection('doctors');
 
-    yield* doctorsCollection
+    yield* doctors
         .snapshots()
         .map((snapshot) =>
             snapshot.docs.map((doc) => DoctorDto.fromFirestore(doc).toDomain()))
@@ -364,9 +367,9 @@ class DoctorRepository implements IDoctorRepository {
 
   @override
   Stream<Either<DoctorFailures, List<Doctor>>> watchAllOncologists() async* {
-    final doctorsCollection = _firestore.collection('doctors');
+    CollectionReference doctors = _firestore!.collection('doctors');
 
-    yield* doctorsCollection
+    yield* doctors
         .snapshots()
         .map((snapshot) =>
             snapshot.docs.map((doc) => DoctorDto.fromFirestore(doc).toDomain()))
@@ -385,9 +388,9 @@ class DoctorRepository implements IDoctorRepository {
   @override
   Stream<Either<DoctorFailures, List<Doctor>>>
       watchAllOphthalmologists() async* {
-    final doctorsCollection = _firestore.collection('doctors');
+    CollectionReference doctors = _firestore!.collection('doctors');
 
-    yield* doctorsCollection
+    yield* doctors
         .snapshots()
         .map((snapshot) =>
             snapshot.docs.map((doc) => DoctorDto.fromFirestore(doc).toDomain()))
@@ -405,9 +408,9 @@ class DoctorRepository implements IDoctorRepository {
 
   @override
   Stream<Either<DoctorFailures, List<Doctor>>> watchAllOrthopaedics() async* {
-    final doctorsCollection = _firestore.collection('doctors');
+    CollectionReference doctors = _firestore!.collection('doctors');
 
-    yield* doctorsCollection
+    yield* doctors
         .snapshots()
         .map((snapshot) =>
             snapshot.docs.map((doc) => DoctorDto.fromFirestore(doc).toDomain()))
@@ -425,9 +428,9 @@ class DoctorRepository implements IDoctorRepository {
 
   @override
   Stream<Either<DoctorFailures, List<Doctor>>> watchAllOsteopaths() async* {
-    final doctorsCollection = _firestore.collection('doctors');
+    CollectionReference doctors = _firestore!.collection('doctors');
 
-    yield* doctorsCollection
+    yield* doctors
         .snapshots()
         .map((snapshot) =>
             snapshot.docs.map((doc) => DoctorDto.fromFirestore(doc).toDomain()))
@@ -445,9 +448,9 @@ class DoctorRepository implements IDoctorRepository {
 
   @override
   Stream<Either<DoctorFailures, List<Doctor>>> watchAllPediatrics() async* {
-    final doctorsCollection = _firestore.collection('doctors');
+    CollectionReference doctors = _firestore!.collection('doctors');
 
-    yield* doctorsCollection
+    yield* doctors
         .snapshots()
         .map((snapshot) =>
             snapshot.docs.map((doc) => DoctorDto.fromFirestore(doc).toDomain()))
@@ -466,9 +469,9 @@ class DoctorRepository implements IDoctorRepository {
   @override
   Stream<Either<DoctorFailures, List<Doctor>>>
       watchAllPlasticSurgeons() async* {
-    final doctorsCollection = _firestore.collection('doctors');
+    CollectionReference doctors = _firestore!.collection('doctors');
 
-    yield* doctorsCollection
+    yield* doctors
         .snapshots()
         .map((snapshot) =>
             snapshot.docs.map((doc) => DoctorDto.fromFirestore(doc).toDomain()))
@@ -486,9 +489,9 @@ class DoctorRepository implements IDoctorRepository {
 
   @override
   Stream<Either<DoctorFailures, List<Doctor>>> watchAllPodiatrists() async* {
-    final doctorsCollection = _firestore.collection('doctors');
+    CollectionReference doctors = _firestore!.collection('doctors');
 
-    yield* doctorsCollection
+    yield* doctors
         .snapshots()
         .map((snapshot) =>
             snapshot.docs.map((doc) => DoctorDto.fromFirestore(doc).toDomain()))
@@ -506,9 +509,9 @@ class DoctorRepository implements IDoctorRepository {
 
   @override
   Stream<Either<DoctorFailures, List<Doctor>>> watchAllPsychiatrists() async* {
-    final doctorsCollection = _firestore.collection('doctors');
+    CollectionReference doctors = _firestore!.collection('doctors');
 
-    yield* doctorsCollection
+    yield* doctors
         .snapshots()
         .map((snapshot) =>
             snapshot.docs.map((doc) => DoctorDto.fromFirestore(doc).toDomain()))
@@ -526,9 +529,9 @@ class DoctorRepository implements IDoctorRepository {
 
   @override
   Stream<Either<DoctorFailures, List<Doctor>>> watchAllPulmonologists() async* {
-    final doctorsCollection = _firestore.collection('doctors');
+    CollectionReference doctors = _firestore!.collection('doctors');
 
-    yield* doctorsCollection
+    yield* doctors
         .snapshots()
         .map((snapshot) =>
             snapshot.docs.map((doc) => DoctorDto.fromFirestore(doc).toDomain()))
@@ -546,9 +549,9 @@ class DoctorRepository implements IDoctorRepository {
 
   @override
   Stream<Either<DoctorFailures, List<Doctor>>> watchAllRadiologists() async* {
-    final doctorsCollection = _firestore.collection('doctors');
+    CollectionReference doctors = _firestore!.collection('doctors');
 
-    yield* doctorsCollection
+    yield* doctors
         .snapshots()
         .map((snapshot) =>
             snapshot.docs.map((doc) => DoctorDto.fromFirestore(doc).toDomain()))
@@ -567,9 +570,9 @@ class DoctorRepository implements IDoctorRepository {
   @override
   Stream<Either<DoctorFailures, List<Doctor>>>
       watchAllRheumatologists() async* {
-    final doctorsCollection = _firestore.collection('doctors');
+    CollectionReference doctors = _firestore!.collection('doctors');
 
-    yield* doctorsCollection
+    yield* doctors
         .snapshots()
         .map((snapshot) =>
             snapshot.docs.map((doc) => DoctorDto.fromFirestore(doc).toDomain()))
@@ -587,9 +590,9 @@ class DoctorRepository implements IDoctorRepository {
 
   @override
   Stream<Either<DoctorFailures, List<Doctor>>> watchAllUrologists() async* {
-    final doctorsCollection = _firestore.collection('doctors');
+    CollectionReference doctors = _firestore!.collection('doctors');
 
-    yield* doctorsCollection
+    yield* doctors
         .snapshots()
         .map((snapshot) =>
             snapshot.docs.map((doc) => DoctorDto.fromFirestore(doc).toDomain()))

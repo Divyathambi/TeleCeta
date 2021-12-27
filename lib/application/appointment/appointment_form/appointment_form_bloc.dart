@@ -47,7 +47,7 @@ class AppointmentFormBloc
                 .copyWith(timeSlots: e.timeSlotsDto.toDomain()),
             saveFailureOrSuccessOption: none()));
       }, saved: (e) async {
-        Either<DoctorFailures, Unit> failureOrSuccess;
+        Either<DoctorFailures, Unit>? failureOrSuccess;
 
         emit(
             state.copyWith(isSaving: true, saveFailureOrSuccessOption: none()));

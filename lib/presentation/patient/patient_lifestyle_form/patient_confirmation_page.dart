@@ -1,6 +1,8 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
 import 'package:teleceta_patients/presentation/custom_widgets/custom_appbar.dart';
+import 'package:teleceta_patients/presentation/routes/app_router.gr.dart';
 
 class PatientConfirmationPage extends StatefulWidget {
   const PatientConfirmationPage({Key? key}) : super(key: key);
@@ -48,7 +50,8 @@ class _PatientConfirmationPageState extends State<PatientConfirmationPage> {
                     elevation: 5,
                     alignment: Alignment.center),
                 onPressed: () {
-                  //TODO: Navigate to the home page
+                  AutoRouter.of(context)
+                      .popAndPush(const CardiologistPageRoute());
                 },
                 child: const Text('Go to homepage', style: buttonTextStyle),
               ),

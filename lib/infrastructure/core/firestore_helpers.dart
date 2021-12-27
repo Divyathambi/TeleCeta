@@ -25,5 +25,5 @@ extension FirestoreX on FirebaseFirestore {
 
 extension DocumentReferenceX on DocumentReference {
   CollectionReference get appointmentCollection => collection('appointments');
-  CollectionReference get doctorsCollection => collection('doctors');
+  // CollectionReference get doctorsCollection => collection('doctors');
 }

@@ -2,8 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:teleceta_patients/domain/core/value_objects.dart';
 import 'package:teleceta_patients/domain/doctor/doctor.dart';
+import 'package:teleceta_patients/domain/doctor/reviews.dart';
 import 'package:teleceta_patients/domain/doctor/time_slots.dart';
-import 'package:teleceta_patients/infrastructure/doctor/reviews_dto.dart';
 
 part 'doctor_dto.freezed.dart';
 part 'doctor_dto.g.dart';
@@ -73,8 +73,8 @@ class DoctorDto with _$DoctorDto {
         profilePic: profilePic!,
         certificatePics: certificatePics!,
         description: description!,
-        timeSlots: List.from(timeSlotsDto!.map((dto) => dto.toDomain())),
-        reviews: List.from(reviewsDto!.map((dto) => dto.toDomain())));
+        timeSlots: timeSlotsDto?.map((dto) => dto.toDomain()).toList(),
+        reviews: reviewsDto?.map((dto) => dto.toDomain()).toList());
   }
 
   factory DoctorDto.fromJson(Map<String, dynamic> json) =>
@@ -114,4 +114,34 @@ class TimeSlotsDto with _$TimeSlotsDto {
 
   factory TimeSlotsDto.fromJson(Map<String, dynamic> json) =>
       _$TimeSlotsDtoFromJson(json);
+}
+
+@freezed
+class ReviewsDto with _$ReviewsDto {
+  const ReviewsDto._();
+
+  const factory ReviewsDto(
+      {@JsonKey(ignore: true) String? id,
+      @required String? name,
+      @required int? rating,
+      @required String? content}) = _ReviewsDto;
+
+  factory ReviewsDto.fromDomain(Reviews reviews) {
+    return ReviewsDto(
+        id: reviews.id!.getOrCrash(),
+        name: reviews.name!,
+        rating: reviews.rating!,
+        content: reviews.content!);
+  }
+
+  Reviews toDomain() {
+    return Reviews(
+        id: UniqueId.fromUniqueString(id!),
+        name: name!,
+        rating: rating!,
+        content: content!);
+  }
+
+  factory ReviewsDto.fromJson(Map<String, dynamic> json) =>
+      _$ReviewsDtoFromJson(json);
 }

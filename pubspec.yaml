@@ -58,6 +58,8 @@ dependencies:
   intl: ^0.17.0
   multi_select_flutter: ^4.0.0
   rive: ^0.7.33
+  firebase_image: ^1.1.0
+  flutter_rating_bar: ^4.0.0
 
 dev_dependencies:
   flutter_test:
@@ -93,6 +95,30 @@ flutter:
     - assets/images/undraw_authentication.png
     - assets/images/undraw_date_picker.png
     - assets/images/check_icon.riv
+    - assets/images/baby.png
+    - assets/images/cosmetic-surgery.png
+    - assets/images/ct-scan.png
+    - assets/images/doctor.png
+    - assets/images/family.png
+    - assets/images/heart.png
+    - assets/images/in-love.png
+    - assets/images/intestine.png
+    - assets/images/mother.png
+    - assets/images/neurology.png
+    - assets/images/neurosurgery.png
+    - assets/images/old-man.png
+    - assets/images/ophthalmology.png
+    - assets/images/orthopedics.png
+    - assets/images/osteopathy.png
+    - assets/images/podiatry.png
+    - assets/images/pulmonology.png
+    - assets/images/skin.png
+    - assets/images/sore-throat.png
+    - assets/images/teeth.png
+    - assets/images/thyroid.png
+    - assets/images/urology.png
+    - assets/images/x-ray.png
+    - assets/images/kidneys.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

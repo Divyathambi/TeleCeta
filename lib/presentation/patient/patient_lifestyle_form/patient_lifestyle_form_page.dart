@@ -1,4 +1,5 @@
 import 'package:another_flushbar/flushbar_helper.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:teleceta_patients/application/patient/patient_form/patient_form_bloc.dart';
@@ -10,6 +11,7 @@ import 'package:teleceta_patients/presentation/patient/patient_lifestyle_form/wi
 import 'package:teleceta_patients/presentation/patient/patient_lifestyle_form/widgets/patient_smoke_field_widget.dart';
 import 'package:teleceta_patients/presentation/patient/patient_lifestyle_form/widgets/patient_stress_field_widget.dart';
 import 'package:teleceta_patients/presentation/patient/patient_lifestyle_form/widgets/patient_workout_field_widget.dart';
+import 'package:teleceta_patients/presentation/routes/app_router.gr.dart';
 
 class PatientLifestyleFormPage extends StatelessWidget {
   const PatientLifestyleFormPage({Key? key}) : super(key: key);
@@ -33,7 +35,10 @@ class PatientLifestyleFormPage extends StatelessWidget {
                                 "You don't have permission to update this.",
                             unableToUpdate: (_) =>
                                 "Unable to process updation. Please try again."));
-                  }, (r) => null));
+                  }, (_) {
+                    AutoRouter.of(context)
+                        .popAndPush(const PatientConfirmationPageRoute());
+                  }));
         },
         buildWhen: (p, c) => p.isSaving != c.isSaving,
         builder: (context, state) {

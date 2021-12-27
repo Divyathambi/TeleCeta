@@ -1,4 +1,6 @@
 import 'package:another_flushbar/flushbar_helper.dart';
+import 'package:auto_route/annotations.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
@@ -14,6 +16,8 @@ import 'package:teleceta_patients/presentation/patient/patient_form/widgets/pati
 import 'package:teleceta_patients/presentation/patient/patient_form/widgets/patient_name_field_widget.dart';
 import 'package:teleceta_patients/presentation/patient/patient_form/widgets/patient_phone_number_field_widget.dart';
 import 'package:teleceta_patients/presentation/patient/patient_form/widgets/patient_weight_field_widget.dart';
+import 'package:teleceta_patients/presentation/patient/patient_medical_form/patient_medical_form_page.dart';
+import 'package:teleceta_patients/presentation/routes/app_router.gr.dart';
 
 import '../../../injection.dart';
 
@@ -25,23 +29,24 @@ class PatientFormPage extends StatelessWidget {
     return BlocProvider(
       create: (context) => getIt<PatientFormBloc>(),
       child: BlocConsumer<PatientFormBloc, PatientFormState>(
-        listenWhen: (p, c) => p.saveFailureOrSuccessOption != c.saveFailureOrSuccessOption,
+        listenWhen: (p, c) =>
+            p.saveFailureOrSuccessOption != c.saveFailureOrSuccessOption,
         listener: (context, state) {
           state.saveFailureOrSuccessOption!.fold(
-            () {}, 
-            (either) => either.fold(
-              (failure) {
-                FlushbarHelper.createError(
-                  message: failure.map(
-                    unexpected: (_) => "An unexpected error occured. Please try again.", 
-                    insufficientPermissions: (_) => "You don't have permission to update this.", 
-                    unableToUpdate: (_) => "Unable to process updation. Please try again."
-                  )
-                );
-              }, 
-              (_) {}
-            )
-          );
+              () {},
+              (either) => either.fold((failure) {
+                    FlushbarHelper.createError(
+                        message: failure.map(
+                            unexpected: (_) =>
+                                "An unexpected error occured. Please try again.",
+                            insufficientPermissions: (_) =>
+                                "You don't have permission to update this.",
+                            unableToUpdate: (_) =>
+                                "Unable to process updation. Please try again."));
+                  }, (_) {
+                    AutoRouter.of(context)
+                        .popAndPush(const PatientMedicalFormPageRoute());
+                  }));
         },
         buildWhen: (p, c) => p.isSaving != c.isSaving,
         builder: (context, state) {
@@ -58,76 +63,69 @@ class PatientFormScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const textStyle = TextStyle(
-      fontFamily: 'NunitoSemiBold', 
-      color: Color.fromRGBO(3, 4, 94, 1), 
+      fontFamily: 'NunitoSemiBold',
+      color: Color.fromRGBO(3, 4, 94, 1),
       fontSize: 20,
     );
 
     const buttonTextStyle = TextStyle(
-      fontFamily: 'NunitoSemiBold', 
+      fontFamily: 'NunitoSemiBold',
       color: Colors.white,
     );
 
-    return  Scaffold(
-      appBar: CustomAppBar('TeleCeta'),
-      body: BlocBuilder<PatientFormBloc, PatientFormState>(
-        buildWhen: (p, c) => p.showErrorMessages != c.showErrorMessages,
-        builder: (context, state) {
-          return ChangeNotifierProvider(
-            create: (_) => PatientFormProvider(),
-            child: Form(
-              autovalidateMode: AutovalidateMode.disabled,
-              child: SingleChildScrollView(
-                child: Center(
-                  child: Column(
-                    children: <Widget>[
-                      const Padding(
-                        padding: EdgeInsets.fromLTRB(30, 30, 30, 10),
-                        child: Text( 
-                          "Let's start by adding a few details about yourself!",
-                          style: textStyle, 
-                          textAlign: TextAlign.center,
+    return Scaffold(
+        appBar: CustomAppBar('TeleCeta'),
+        body: BlocBuilder<PatientFormBloc, PatientFormState>(
+          buildWhen: (p, c) => p.showErrorMessages != c.showErrorMessages,
+          builder: (context, state) {
+            return ChangeNotifierProvider(
+              create: (_) => PatientFormProvider(),
+              child: Form(
+                  autovalidateMode: AutovalidateMode.disabled,
+                  child: SingleChildScrollView(
+                    child: Center(
+                      child: Column(children: <Widget>[
+                        const Padding(
+                          padding: EdgeInsets.fromLTRB(30, 30, 30, 10),
+                          child: Text(
+                            "Let's start by adding a few details about yourself!",
+                            style: textStyle,
+                            textAlign: TextAlign.center,
+                          ),
                         ),
-                      ), 
-                      const PatientNameFieldWidget(),
-                      const PatientEmailFieldWidget(),
-                      const PatientPhoneNumberFieldWidget(),
-                      const PatientGenderFieldWidget(),
-                      const PatientDobFieldWidget(),
-                      const PatientBloodGroupFieldWidget(),
-                      Row(
-                        children: const [
-                          PatientHeightFieldWidget(),
-                          PatientWeightFieldWidget(),
-                        ],
-                      ),
-                      const PatientLocationFieldWidget(),
-                      ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                primary: const Color.fromRGBO(0, 119, 182, 1),
-                padding: const EdgeInsets.fromLTRB(40, 20, 40, 20),
-                elevation: 5, 
-                alignment: Alignment.center
-              ),
-              onPressed: () {
-                context.read<PatientFormBloc>().add(const PatientFormEvent.saved());
-              }, 
-              child: const Text(
-                'Save',
-                style: buttonTextStyle
-                 ),
-               ),
-               const SizedBox(
-                 height: 100
-               )
-                    ]
-                  ),
-                ),
-              )
-            ),
-          );
-        },
-      )
-    );
+                        const PatientNameFieldWidget(),
+                        const PatientEmailFieldWidget(),
+                        const PatientPhoneNumberFieldWidget(),
+                        const PatientGenderFieldWidget(),
+                        const PatientDobFieldWidget(),
+                        const PatientBloodGroupFieldWidget(),
+                        Row(
+                          children: const [
+                            PatientHeightFieldWidget(),
+                            PatientWeightFieldWidget(),
+                          ],
+                        ),
+                        const PatientLocationFieldWidget(),
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              primary: const Color.fromRGBO(0, 119, 182, 1),
+                              padding:
+                                  const EdgeInsets.fromLTRB(40, 20, 40, 20),
+                              elevation: 5,
+                              alignment: Alignment.center),
+                          onPressed: () {
+                            context
+                                .read<PatientFormBloc>()
+                                .add(const PatientFormEvent.saved());
+                          },
+                          child: const Text('Save', style: buttonTextStyle),
+                        ),
+                        const SizedBox(height: 100)
+                      ]),
+                    ),
+                  )),
+            );
+          },
+        ));
   }
 }

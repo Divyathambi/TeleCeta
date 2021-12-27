@@ -29,7 +29,7 @@ class AppointmentWatcherBloc
         await _appointmentStreamSubscription?.cancel();
 
         _appointmentStreamSubscription = _doctorRepository
-            .watchAllAppointments()
+            .watchAllAppointments()!
             .listen((failureOrAppointments) => add(
                 AppointmentWatcherEvent.appointmentsReceived(
                     failureOrAppointments)));
