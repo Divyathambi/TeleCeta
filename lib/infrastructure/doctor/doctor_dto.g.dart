@@ -23,10 +23,10 @@ _$_DoctorDto _$$_DoctorDtoFromJson(Map<String, dynamic> json) => _$_DoctorDto(
           ?.map((e) => e as String)
           .toList(),
       description: json['description'] as String?,
-      timeSlotsDto: (json['timeSlotsDto'] as List<dynamic>?)
+      timeSlots: (json['timeSlots'] as List<dynamic>?)
           ?.map((e) => TimeSlotsDto.fromJson(e as Map<String, dynamic>))
           .toList(),
-      reviewsDto: (json['reviewsDto'] as List<dynamic>?)
+      reviews: (json['reviews'] as List<dynamic>?)
           ?.map((e) => ReviewsDto.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
@@ -47,32 +47,32 @@ Map<String, dynamic> _$$_DoctorDtoToJson(_$_DoctorDto instance) =>
       'profilePic': instance.profilePic,
       'certificatePics': instance.certificatePics,
       'description': instance.description,
-      'timeSlotsDto': instance.timeSlotsDto,
-      'reviewsDto': instance.reviewsDto,
+      'timeSlots': instance.timeSlots,
+      'reviews': instance.reviews,
     };
 
 _$_TimeSlotsDto _$$_TimeSlotsDtoFromJson(Map<String, dynamic> json) =>
     _$_TimeSlotsDto(
       id: json['id'] as String?,
-      beginningTime: json['beginningTime'] == null
-          ? null
-          : DateTime.parse(json['beginningTime'] as String),
-      endingTime: json['endingTime'] == null
-          ? null
-          : DateTime.parse(json['endingTime'] as String),
+      beginningTime: const TimestampConverter()
+          .fromJson(json['beginningTime'] as Timestamp?),
+      endingTime:
+          const TimestampConverter().fromJson(json['endingTime'] as Timestamp?),
       days: (json['days'] as List<dynamic>?)?.map((e) => e as String).toList(),
     );
 
 Map<String, dynamic> _$$_TimeSlotsDtoToJson(_$_TimeSlotsDto instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'beginningTime': instance.beginningTime?.toIso8601String(),
-      'endingTime': instance.endingTime?.toIso8601String(),
+      'beginningTime':
+          const TimestampConverter().toJson(instance.beginningTime),
+      'endingTime': const TimestampConverter().toJson(instance.endingTime),
       'days': instance.days,
     };
 
 _$_ReviewsDto _$$_ReviewsDtoFromJson(Map<String, dynamic> json) =>
     _$_ReviewsDto(
+      id: json['id'] as String?,
       name: json['name'] as String?,
       rating: json['rating'] as int?,
       content: json['content'] as String?,
@@ -80,6 +80,7 @@ _$_ReviewsDto _$$_ReviewsDtoFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$_ReviewsDtoToJson(_$_ReviewsDto instance) =>
     <String, dynamic>{
+      'id': instance.id,
       'name': instance.name,
       'rating': instance.rating,
       'content': instance.content,

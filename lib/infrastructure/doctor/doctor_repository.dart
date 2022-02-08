@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:injectable/injectable.dart';
 import 'package:teleceta_patients/domain/doctor/doctor_failures.dart';
@@ -119,7 +117,6 @@ class DoctorRepository implements IDoctorRepository {
       if (e is FirebaseException && e.message!.contains('PERMISSION_DENIED')) {
         return left(const DoctorFailures.insufficientPermissions());
       } else {
-        print(e.toString());
         return left(const DoctorFailures.unexpected());
       }
     });

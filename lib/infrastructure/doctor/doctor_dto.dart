@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:teleceta_patients/domain/core/value_objects.dart';
 import 'package:teleceta_patients/domain/doctor/doctor.dart';
@@ -28,8 +29,8 @@ class DoctorDto with _$DoctorDto {
       @required String? profilePic,
       @required List<String>? certificatePics,
       @required String? description,
-      @required List<TimeSlotsDto>? timeSlotsDto,
-      @required List<ReviewsDto>? reviewsDto}) = _DoctorDto;
+      @required List<TimeSlotsDto>? timeSlots,
+      @required List<ReviewsDto>? reviews}) = _DoctorDto;
 
   factory DoctorDto.fromDomain(Doctor doctor) {
     return DoctorDto(
@@ -48,10 +49,10 @@ class DoctorDto with _$DoctorDto {
         profilePic: doctor.profilePic!,
         certificatePics: doctor.certificatePics!,
         description: doctor.description!,
-        timeSlotsDto: doctor.timeSlots!
+        timeSlots: doctor.timeSlots!
             .map((timeSlot) => TimeSlotsDto.fromDomain(timeSlot))
             .toList(),
-        reviewsDto: doctor.reviews!
+        reviews: doctor.reviews!
             .map((review) => ReviewsDto.fromDomain(review))
             .toList());
   }
@@ -73,8 +74,8 @@ class DoctorDto with _$DoctorDto {
         profilePic: profilePic!,
         certificatePics: certificatePics!,
         description: description!,
-        timeSlots: timeSlotsDto?.map((dto) => dto.toDomain()).toList(),
-        reviews: reviewsDto?.map((dto) => dto.toDomain()).toList());
+        timeSlots: timeSlots!.map((dto) => dto.toDomain()).toList(),
+        reviews: reviews!.map((dto) => dto.toDomain()).toList());
   }
 
   factory DoctorDto.fromJson(Map<String, dynamic> json) =>
@@ -86,22 +87,34 @@ class DoctorDto with _$DoctorDto {
   }
 }
 
+class TimestampConverter implements JsonConverter<DateTime?, Timestamp?> {
+  const TimestampConverter();
+
+  @override
+  DateTime fromJson(Timestamp? timestamp) {
+    return timestamp!.toDate();
+  }
+
+  @override
+  Timestamp toJson(DateTime? date) => Timestamp.fromDate(date!);
+}
+
 @freezed
 class TimeSlotsDto with _$TimeSlotsDto {
   const TimeSlotsDto._();
 
   const factory TimeSlotsDto(
       {@required String? id,
-      @required DateTime? beginningTime,
-      @required DateTime? endingTime,
+      @required @TimestampConverter() DateTime? beginningTime,
+      @required @TimestampConverter() DateTime? endingTime,
       @required List<String>? days}) = _TimeSlotsDto;
 
   factory TimeSlotsDto.fromDomain(TimeSlots timeSlots) {
     return TimeSlotsDto(
         id: timeSlots.id!.getOrCrash(),
-        beginningTime: timeSlots.beginningTime,
-        endingTime: timeSlots.endingTime,
-        days: timeSlots.days);
+        beginningTime: timeSlots.beginningTime!,
+        endingTime: timeSlots.endingTime!,
+        days: timeSlots.days!);
   }
 
   TimeSlots toDomain() {
@@ -121,7 +134,7 @@ class ReviewsDto with _$ReviewsDto {
   const ReviewsDto._();
 
   const factory ReviewsDto(
-      {@JsonKey(ignore: true) String? id,
+      {@required String? id,
       @required String? name,
       @required int? rating,
       @required String? content}) = _ReviewsDto;

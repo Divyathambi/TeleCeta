@@ -6,12 +6,14 @@ class PatientBloodGroupFieldWidget extends StatefulWidget {
   const PatientBloodGroupFieldWidget({Key? key}) : super(key: key);
 
   @override
-  _PatientBloodGroupFieldWidgetState createState() => _PatientBloodGroupFieldWidgetState();
+  _PatientBloodGroupFieldWidgetState createState() =>
+      _PatientBloodGroupFieldWidgetState();
 }
 
-class _PatientBloodGroupFieldWidgetState extends State<PatientBloodGroupFieldWidget> {
+class _PatientBloodGroupFieldWidgetState
+    extends State<PatientBloodGroupFieldWidget> {
   List<String> bloodGroups = ["A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-"];
-  String? _selectedBloodGroup = "A+";
+  String? _selectedBloodGroup;
 
   @override
   Widget build(BuildContext context) {
@@ -22,23 +24,21 @@ class _PatientBloodGroupFieldWidgetState extends State<PatientBloodGroupFieldWid
       child: Padding(
         padding: const EdgeInsets.all(20.0),
         child: DropdownButtonFormField(
-          decoration: const InputDecoration(
-            labelText: "Blood Group",
-          ),
-          value: _selectedBloodGroup ?? bloodGroups[0],
-          items: bloodGroups.map((bloodGroup) {
-            return DropdownMenuItem(
-              value: bloodGroup,
-              child: Text(bloodGroup)
-            );
-          }).toList(),
-          onChanged: (String? val) {
-            setState(() {
-              _selectedBloodGroup = val!;
-              context.read<PatientFormBloc>().add(PatientFormEvent.bloodGroupChanged(_selectedBloodGroup!));
-            });
-          }
-        ),
+            decoration: const InputDecoration(
+              labelText: "Blood Group",
+            ),
+            value: bloodGroups[0],
+            items: bloodGroups.map((bloodGroup) {
+              return DropdownMenuItem(
+                  value: bloodGroup, child: Text(bloodGroup));
+            }).toList(),
+            onChanged: (String? val) {
+              setState(() {
+                _selectedBloodGroup = val!;
+                context.read<PatientFormBloc>().add(
+                    PatientFormEvent.bloodGroupChanged(_selectedBloodGroup!));
+              });
+            }),
       ),
     );
   }

@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'appointment.dart';
@@ -223,19 +224,23 @@ class _$_Appointment extends _Appointment {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Appointment &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.patient, patient) || other.patient == patient) &&
-            (identical(other.patientName, patientName) ||
-                other.patientName == patientName) &&
-            (identical(other.appointmentDate, appointmentDate) ||
-                other.appointmentDate == appointmentDate) &&
-            (identical(other.timeSlots, timeSlots) ||
-                other.timeSlots == timeSlots));
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.patient, patient) &&
+            const DeepCollectionEquality()
+                .equals(other.patientName, patientName) &&
+            const DeepCollectionEquality()
+                .equals(other.appointmentDate, appointmentDate) &&
+            const DeepCollectionEquality().equals(other.timeSlots, timeSlots));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, id, patient, patientName, appointmentDate, timeSlots);
+      runtimeType,
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(patient),
+      const DeepCollectionEquality().hash(patientName),
+      const DeepCollectionEquality().hash(appointmentDate),
+      const DeepCollectionEquality().hash(timeSlots));
 
   @JsonKey(ignore: true)
   @override

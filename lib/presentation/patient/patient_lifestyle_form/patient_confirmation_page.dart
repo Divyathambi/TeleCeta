@@ -51,7 +51,7 @@ class _PatientConfirmationPageState extends State<PatientConfirmationPage> {
                     alignment: Alignment.center),
                 onPressed: () {
                   AutoRouter.of(context)
-                      .popAndPush(const CardiologistPageRoute());
+                      .popAndPush(const DoctorSpecialityOverviewBodyRoute());
                 },
                 child: const Text('Go to homepage', style: buttonTextStyle),
               ),

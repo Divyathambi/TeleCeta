@@ -25,7 +25,7 @@ class DoctorOverviewBody extends StatelessWidget {
                     shrinkWrap: true,
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
-                            childAspectRatio: 2 / 3,
+                            childAspectRatio: 2 / 3.8,
                             crossAxisCount: 2,
                             mainAxisSpacing: 5,
                             crossAxisSpacing: 5),

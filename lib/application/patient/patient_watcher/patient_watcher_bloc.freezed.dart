@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'patient_watcher_bloc.dart';
@@ -252,12 +253,13 @@ class _$_PatientReceived implements _PatientReceived {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _PatientReceived &&
-            (identical(other.failureOrPatient, failureOrPatient) ||
-                other.failureOrPatient == failureOrPatient));
+            const DeepCollectionEquality()
+                .equals(other.failureOrPatient, failureOrPatient));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, failureOrPatient);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(failureOrPatient));
 
   @JsonKey(ignore: true)
   @override
@@ -730,12 +732,13 @@ class _$_LoadFailure implements _LoadFailure {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _LoadFailure &&
-            (identical(other.patientFailure, patientFailure) ||
-                other.patientFailure == patientFailure));
+            const DeepCollectionEquality()
+                .equals(other.patientFailure, patientFailure));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, patientFailure);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(patientFailure));
 
   @JsonKey(ignore: true)
   @override
@@ -885,11 +888,12 @@ class _$_LoadSuccess implements _LoadSuccess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _LoadSuccess &&
-            (identical(other.patient, patient) || other.patient == patient));
+            const DeepCollectionEquality().equals(other.patient, patient));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, patient);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(patient));
 
   @JsonKey(ignore: true)
   @override

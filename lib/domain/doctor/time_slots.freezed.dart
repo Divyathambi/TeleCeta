@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'time_slots.dart';
@@ -168,16 +169,20 @@ class _$_TimeSlots extends _TimeSlots {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _TimeSlots &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.beginningTime, beginningTime) ||
-                other.beginningTime == beginningTime) &&
-            (identical(other.endingTime, endingTime) ||
-                other.endingTime == endingTime) &&
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality()
+                .equals(other.beginningTime, beginningTime) &&
+            const DeepCollectionEquality()
+                .equals(other.endingTime, endingTime) &&
             const DeepCollectionEquality().equals(other.days, days));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, beginningTime, endingTime,
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(beginningTime),
+      const DeepCollectionEquality().hash(endingTime),
       const DeepCollectionEquality().hash(days));
 
   @JsonKey(ignore: true)

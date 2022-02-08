@@ -2,6 +2,30 @@ import 'package:auto_route/annotations.dart';
 import 'package:teleceta_patients/presentation/carousel_pages/carousel_main_page.dart';
 import 'package:teleceta_patients/presentation/doctor/doctor_speciality_overview_body.dart';
 import 'package:teleceta_patients/presentation/doctor/pages/cardiologist_page.dart';
+import 'package:teleceta_patients/presentation/doctor/pages/consult_now_page.dart';
+import 'package:teleceta_patients/presentation/doctor/pages/dentist_page.dart';
+import 'package:teleceta_patients/presentation/doctor/pages/dermatologist_page.dart';
+import 'package:teleceta_patients/presentation/doctor/pages/doctor_details_overview_page.dart';
+import 'package:teleceta_patients/presentation/doctor/pages/endocrinologist_page.dart';
+import 'package:teleceta_patients/presentation/doctor/pages/ent_page.dart';
+import 'package:teleceta_patients/presentation/doctor/pages/family_medicine_doctors_page.dart';
+import 'package:teleceta_patients/presentation/doctor/pages/gastroenterologist_page.dart';
+import 'package:teleceta_patients/presentation/doctor/pages/general_physicians_page.dart';
+import 'package:teleceta_patients/presentation/doctor/pages/geriatrics_page.dart';
+import 'package:teleceta_patients/presentation/doctor/pages/gynaecologist_page.dart';
+import 'package:teleceta_patients/presentation/doctor/pages/nephrologist_page.dart';
+import 'package:teleceta_patients/presentation/doctor/pages/neurologist_page.dart';
+import 'package:teleceta_patients/presentation/doctor/pages/neurosurgeons_page.dart';
+import 'package:teleceta_patients/presentation/doctor/pages/oncologist_page.dart';
+import 'package:teleceta_patients/presentation/doctor/pages/ophthalmologist_page.dart';
+import 'package:teleceta_patients/presentation/doctor/pages/orthopaedics_page.dart';
+import 'package:teleceta_patients/presentation/doctor/pages/osteopath_page.dart';
+import 'package:teleceta_patients/presentation/doctor/pages/pediatric_page.dart';
+import 'package:teleceta_patients/presentation/doctor/pages/plastic_surgeons_page.dart';
+import 'package:teleceta_patients/presentation/doctor/pages/podiatrist_page.dart';
+import 'package:teleceta_patients/presentation/doctor/pages/psychiatrist_page.dart';
+import 'package:teleceta_patients/presentation/doctor/pages/pulmonologist_page.dart';
+import 'package:teleceta_patients/presentation/doctor/pages/urologist_page.dart';
 import 'package:teleceta_patients/presentation/patient/patient_form/patient_form_page.dart';
 import 'package:teleceta_patients/presentation/patient/patient_lifestyle_form/patient_confirmation_page.dart';
 import 'package:teleceta_patients/presentation/patient/patient_lifestyle_form/patient_lifestyle_form_page.dart';
@@ -11,7 +35,7 @@ import 'package:teleceta_patients/presentation/sign_in/sign_in_page.dart';
 import 'package:teleceta_patients/presentation/splash/splash_page.dart';
 
 @MaterialAutoRouter(routes: <AutoRoute>[
-  MaterialRoute(page: SplashPage),
+  MaterialRoute(page: SplashPage, initial: true),
   MaterialRoute(page: CarouselMainPage),
   MaterialRoute(page: SignInPage),
   MaterialRoute(page: LoginPage),
@@ -20,6 +44,30 @@ import 'package:teleceta_patients/presentation/splash/splash_page.dart';
   MaterialRoute(page: PatientLifestyleFormPage),
   MaterialRoute(page: PatientConfirmationPage),
   MaterialRoute(page: DoctorSpecialityOverviewBody),
-  MaterialRoute(page: CardiologistPage, initial: true),
+  MaterialRoute(page: CardiologistPage),
+  MaterialRoute(page: DentistPage),
+  MaterialRoute(page: DermatologistPage),
+  MaterialRoute(page: EndocrinologistPage),
+  MaterialRoute(page: EntPage),
+  MaterialRoute(page: FamilyMedicineDoctorsPage),
+  MaterialRoute(page: GastroenterologistPage),
+  MaterialRoute(page: GeneralPhysiciansPage),
+  MaterialRoute(page: GeriatricsPage),
+  MaterialRoute(page: GynaecologistPage),
+  MaterialRoute(page: NephrologistPage),
+  MaterialRoute(page: NeurologistPage),
+  MaterialRoute(page: NeuroSurgeonsPage),
+  MaterialRoute(page: OncologistPage),
+  MaterialRoute(page: OphthalmologistPage),
+  MaterialRoute(page: OrthopaedicsPage),
+  MaterialRoute(page: OsteopathPage),
+  MaterialRoute(page: PediatricPage),
+  MaterialRoute(page: PlasticSurgeonsPage),
+  MaterialRoute(page: PodiatristPage),
+  MaterialRoute(page: PsychiatristPage),
+  MaterialRoute(page: PulmonologistPage),
+  MaterialRoute(page: UrologistPage),
+  MaterialRoute(page: DoctorDetailsOverviewPage),
+  MaterialRoute(page: ConsultNowPage)
 ])
 class $AppRouter {}

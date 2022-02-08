@@ -1,5 +1,7 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:teleceta_patients/domain/doctor/doctor.dart';
+import 'package:teleceta_patients/presentation/routes/app_router.gr.dart';
 
 class DoctorCard extends StatelessWidget {
   final Doctor doctor;
@@ -19,7 +21,10 @@ class DoctorCard extends StatelessWidget {
     return SizedBox(
       height: 300,
       child: GestureDetector(
-        onTap: () {},
+        onTap: () {
+          AutoRouter.of(context)
+              .push(DoctorDetailsOverviewPageRoute(doctor: doctor));
+        },
         child: Card(
           semanticContainer: true,
           elevation: 4.0,
@@ -33,23 +38,38 @@ class DoctorCard extends StatelessWidget {
                       backgroundImage: NetworkImage(doctor.profilePic!),
                     ),
                     const SizedBox(height: 8),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text(
-                          '${doctor.name!} | ${doctor.highestQualification}',
-                          style: captionStyle,
-                        ),
-                      ],
+                    Text(
+                      'Dr.${doctor.name!}',
+                      style: captionStyle,
                     ),
                     const SizedBox(height: 4),
-                    Text(doctor.speciality!, style: textStyle),
+                    Text(
+                        '${doctor.speciality!} | ${doctor.highestQualification}',
+                        style: textStyle),
                     const SizedBox(height: 4),
                     Text(doctor.location!, style: textStyle),
                     const SizedBox(height: 4),
                     Text('Experience: ${doctor.experience!}', style: textStyle),
-                    const SizedBox(height: 7),
+                    const SizedBox(height: 4),
+                    Text(doctor.nameOfClinic!, style: textStyle),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 8.0),
+                      child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              primary: const Color.fromRGBO(0, 119, 182, 1),
+                              elevation: 5,
+                              alignment: Alignment.center),
+                          onPressed: () {
+                            AutoRouter.of(context)
+                                .push(ConsultNowPageRoute(doctor: doctor));
+                          },
+                          child: const Text(
+                            'Consult now',
+                            style: TextStyle(
+                                fontFamily: 'NunitoSemiBold',
+                                color: Colors.white),
+                          )),
+                    ),
                     ElevatedButton(
                         style: ElevatedButton.styleFrom(
                             primary: const Color.fromRGBO(0, 119, 182, 1),
@@ -57,7 +77,7 @@ class DoctorCard extends StatelessWidget {
                             alignment: Alignment.center),
                         onPressed: () {},
                         child: const Text(
-                          'Book Appointment',
+                          'Book appointment',
                           style: TextStyle(
                               fontFamily: 'NunitoSemiBold',
                               color: Colors.white),

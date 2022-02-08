@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'patient.dart';
@@ -551,74 +552,73 @@ class _$_Patient extends _Patient {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Patient &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.emailAddress, emailAddress) ||
-                other.emailAddress == emailAddress) &&
-            (identical(other.phoneNumber, phoneNumber) ||
-                other.phoneNumber == phoneNumber) &&
-            (identical(other.gender, gender) || other.gender == gender) &&
-            (identical(other.dateOfBirth, dateOfBirth) ||
-                other.dateOfBirth == dateOfBirth) &&
-            (identical(other.bloodGroup, bloodGroup) ||
-                other.bloodGroup == bloodGroup) &&
-            (identical(other.height, height) || other.height == height) &&
-            (identical(other.weight, weight) || other.weight == weight) &&
-            (identical(other.location, location) ||
-                other.location == location) &&
-            (identical(other.haveAllergies, haveAllergies) ||
-                other.haveAllergies == haveAllergies) &&
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality()
+                .equals(other.emailAddress, emailAddress) &&
+            const DeepCollectionEquality()
+                .equals(other.phoneNumber, phoneNumber) &&
+            const DeepCollectionEquality().equals(other.gender, gender) &&
+            const DeepCollectionEquality()
+                .equals(other.dateOfBirth, dateOfBirth) &&
+            const DeepCollectionEquality()
+                .equals(other.bloodGroup, bloodGroup) &&
+            const DeepCollectionEquality().equals(other.height, height) &&
+            const DeepCollectionEquality().equals(other.weight, weight) &&
+            const DeepCollectionEquality().equals(other.location, location) &&
+            const DeepCollectionEquality()
+                .equals(other.haveAllergies, haveAllergies) &&
             const DeepCollectionEquality().equals(other.allergies, allergies) &&
-            (identical(other.takesMedication, takesMedication) ||
-                other.takesMedication == takesMedication) &&
+            const DeepCollectionEquality()
+                .equals(other.takesMedication, takesMedication) &&
             const DeepCollectionEquality()
                 .equals(other.medications, medications) &&
-            (identical(other.haveInjuries, haveInjuries) ||
-                other.haveInjuries == haveInjuries) &&
-            (identical(other.haveChronicIllnesses, haveChronicIllnesses) ||
-                other.haveChronicIllnesses == haveChronicIllnesses) &&
-            (identical(other.wasHospitalized, wasHospitalized) ||
-                other.wasHospitalized == wasHospitalized) &&
+            const DeepCollectionEquality()
+                .equals(other.haveInjuries, haveInjuries) &&
+            const DeepCollectionEquality()
+                .equals(other.haveChronicIllnesses, haveChronicIllnesses) &&
+            const DeepCollectionEquality()
+                .equals(other.wasHospitalized, wasHospitalized) &&
             const DeepCollectionEquality().equals(other.injuries, injuries) &&
-            (identical(other.familyHealthIssue, familyHealthIssue) ||
-                other.familyHealthIssue == familyHealthIssue) &&
-            (identical(other.occupation, occupation) ||
-                other.occupation == occupation) &&
-            (identical(other.workout, workout) || other.workout == workout) &&
-            (identical(other.stress, stress) || other.stress == stress) &&
-            (identical(other.diet, diet) || other.diet == diet) &&
-            (identical(other.alcohol, alcohol) || other.alcohol == alcohol) &&
-            (identical(other.smoke, smoke) || other.smoke == smoke));
+            const DeepCollectionEquality()
+                .equals(other.familyHealthIssue, familyHealthIssue) &&
+            const DeepCollectionEquality()
+                .equals(other.occupation, occupation) &&
+            const DeepCollectionEquality().equals(other.workout, workout) &&
+            const DeepCollectionEquality().equals(other.stress, stress) &&
+            const DeepCollectionEquality().equals(other.diet, diet) &&
+            const DeepCollectionEquality().equals(other.alcohol, alcohol) &&
+            const DeepCollectionEquality().equals(other.smoke, smoke));
   }
 
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
-        id,
-        name,
-        emailAddress,
-        phoneNumber,
-        gender,
-        dateOfBirth,
-        bloodGroup,
-        height,
-        weight,
-        location,
-        haveAllergies,
+        const DeepCollectionEquality().hash(id),
+        const DeepCollectionEquality().hash(name),
+        const DeepCollectionEquality().hash(emailAddress),
+        const DeepCollectionEquality().hash(phoneNumber),
+        const DeepCollectionEquality().hash(gender),
+        const DeepCollectionEquality().hash(dateOfBirth),
+        const DeepCollectionEquality().hash(bloodGroup),
+        const DeepCollectionEquality().hash(height),
+        const DeepCollectionEquality().hash(weight),
+        const DeepCollectionEquality().hash(location),
+        const DeepCollectionEquality().hash(haveAllergies),
         const DeepCollectionEquality().hash(allergies),
-        takesMedication,
+        const DeepCollectionEquality().hash(takesMedication),
         const DeepCollectionEquality().hash(medications),
-        haveInjuries,
-        haveChronicIllnesses,
-        wasHospitalized,
+        const DeepCollectionEquality().hash(haveInjuries),
+        const DeepCollectionEquality().hash(haveChronicIllnesses),
+        const DeepCollectionEquality().hash(wasHospitalized),
         const DeepCollectionEquality().hash(injuries),
-        familyHealthIssue,
-        occupation,
-        workout,
-        stress,
-        diet,
-        alcohol,
-        smoke
+        const DeepCollectionEquality().hash(familyHealthIssue),
+        const DeepCollectionEquality().hash(occupation),
+        const DeepCollectionEquality().hash(workout),
+        const DeepCollectionEquality().hash(stress),
+        const DeepCollectionEquality().hash(diet),
+        const DeepCollectionEquality().hash(alcohol),
+        const DeepCollectionEquality().hash(smoke)
       ]);
 
   @JsonKey(ignore: true)

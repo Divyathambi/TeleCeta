@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'doctor.dart';
@@ -428,31 +429,30 @@ class _$_Doctor extends _Doctor with DiagnosticableTreeMixin {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Doctor &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.email, email) || other.email == email) &&
-            (identical(other.phoneNumber, phoneNumber) ||
-                other.phoneNumber == phoneNumber) &&
-            (identical(other.age, age) || other.age == age) &&
-            (identical(other.gender, gender) || other.gender == gender) &&
-            (identical(other.residentialAddress, residentialAddress) ||
-                other.residentialAddress == residentialAddress) &&
-            (identical(other.speciality, speciality) ||
-                other.speciality == speciality) &&
-            (identical(other.highestQualification, highestQualification) ||
-                other.highestQualification == highestQualification) &&
-            (identical(other.nameOfClinic, nameOfClinic) ||
-                other.nameOfClinic == nameOfClinic) &&
-            (identical(other.location, location) ||
-                other.location == location) &&
-            (identical(other.experience, experience) ||
-                other.experience == experience) &&
-            (identical(other.profilePic, profilePic) ||
-                other.profilePic == profilePic) &&
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality().equals(other.email, email) &&
+            const DeepCollectionEquality()
+                .equals(other.phoneNumber, phoneNumber) &&
+            const DeepCollectionEquality().equals(other.age, age) &&
+            const DeepCollectionEquality().equals(other.gender, gender) &&
+            const DeepCollectionEquality()
+                .equals(other.residentialAddress, residentialAddress) &&
+            const DeepCollectionEquality()
+                .equals(other.speciality, speciality) &&
+            const DeepCollectionEquality()
+                .equals(other.highestQualification, highestQualification) &&
+            const DeepCollectionEquality()
+                .equals(other.nameOfClinic, nameOfClinic) &&
+            const DeepCollectionEquality().equals(other.location, location) &&
+            const DeepCollectionEquality()
+                .equals(other.experience, experience) &&
+            const DeepCollectionEquality()
+                .equals(other.profilePic, profilePic) &&
             const DeepCollectionEquality()
                 .equals(other.certificatePics, certificatePics) &&
-            (identical(other.description, description) ||
-                other.description == description) &&
+            const DeepCollectionEquality()
+                .equals(other.description, description) &&
             const DeepCollectionEquality().equals(other.timeSlots, timeSlots) &&
             const DeepCollectionEquality().equals(other.reviews, reviews));
   }
@@ -460,21 +460,21 @@ class _$_Doctor extends _Doctor with DiagnosticableTreeMixin {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      id,
-      name,
-      email,
-      phoneNumber,
-      age,
-      gender,
-      residentialAddress,
-      speciality,
-      highestQualification,
-      nameOfClinic,
-      location,
-      experience,
-      profilePic,
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(email),
+      const DeepCollectionEquality().hash(phoneNumber),
+      const DeepCollectionEquality().hash(age),
+      const DeepCollectionEquality().hash(gender),
+      const DeepCollectionEquality().hash(residentialAddress),
+      const DeepCollectionEquality().hash(speciality),
+      const DeepCollectionEquality().hash(highestQualification),
+      const DeepCollectionEquality().hash(nameOfClinic),
+      const DeepCollectionEquality().hash(location),
+      const DeepCollectionEquality().hash(experience),
+      const DeepCollectionEquality().hash(profilePic),
       const DeepCollectionEquality().hash(certificatePics),
-      description,
+      const DeepCollectionEquality().hash(description),
       const DeepCollectionEquality().hash(timeSlots),
       const DeepCollectionEquality().hash(reviews));
 

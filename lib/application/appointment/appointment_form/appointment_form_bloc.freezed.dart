@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'appointment_form_bloc.dart';
@@ -197,12 +198,13 @@ class _$_PatientDetailsInitialized implements _PatientDetailsInitialized {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _PatientDetailsInitialized &&
-            (identical(other.initialPatientDetails, initialPatientDetails) ||
-                other.initialPatientDetails == initialPatientDetails));
+            const DeepCollectionEquality()
+                .equals(other.initialPatientDetails, initialPatientDetails));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, initialPatientDetails);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(initialPatientDetails));
 
   @JsonKey(ignore: true)
   @override
@@ -374,12 +376,13 @@ class _$_PatientChanged implements _PatientChanged {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _PatientChanged &&
-            (identical(other.patientDto, patientDto) ||
-                other.patientDto == patientDto));
+            const DeepCollectionEquality()
+                .equals(other.patientDto, patientDto));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, patientDto);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(patientDto));
 
   @JsonKey(ignore: true)
   @override
@@ -539,12 +542,13 @@ class _$_PatientNameChanged implements _PatientNameChanged {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _PatientNameChanged &&
-            (identical(other.patientName, patientName) ||
-                other.patientName == patientName));
+            const DeepCollectionEquality()
+                .equals(other.patientName, patientName));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, patientName);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(patientName));
 
   @JsonKey(ignore: true)
   @override
@@ -704,12 +708,13 @@ class _$_AppointmentDateChanged implements _AppointmentDateChanged {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _AppointmentDateChanged &&
-            (identical(other.appointmentDate, appointmentDate) ||
-                other.appointmentDate == appointmentDate));
+            const DeepCollectionEquality()
+                .equals(other.appointmentDate, appointmentDate));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, appointmentDate);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(appointmentDate));
 
   @JsonKey(ignore: true)
   @override
@@ -880,12 +885,13 @@ class _$_TimeSlotsChanged implements _TimeSlotsChanged {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _TimeSlotsChanged &&
-            (identical(other.timeSlotsDto, timeSlotsDto) ||
-                other.timeSlotsDto == timeSlotsDto));
+            const DeepCollectionEquality()
+                .equals(other.timeSlotsDto, timeSlotsDto));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, timeSlotsDto);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(timeSlotsDto));
 
   @JsonKey(ignore: true)
   @override
@@ -1360,24 +1366,26 @@ class _$_AppointmentFormState implements _AppointmentFormState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _AppointmentFormState &&
-            (identical(other.appointment, appointment) ||
-                other.appointment == appointment) &&
-            (identical(other.patient, patient) || other.patient == patient) &&
-            (identical(other.isSaving, isSaving) ||
-                other.isSaving == isSaving) &&
-            (identical(other.isEditing, isEditing) ||
-                other.isEditing == isEditing) &&
-            (identical(other.showErrorMessages, showErrorMessages) ||
-                other.showErrorMessages == showErrorMessages) &&
-            (identical(other.saveFailureOrSuccessOption,
-                    saveFailureOrSuccessOption) ||
-                other.saveFailureOrSuccessOption ==
-                    saveFailureOrSuccessOption));
+            const DeepCollectionEquality()
+                .equals(other.appointment, appointment) &&
+            const DeepCollectionEquality().equals(other.patient, patient) &&
+            const DeepCollectionEquality().equals(other.isSaving, isSaving) &&
+            const DeepCollectionEquality().equals(other.isEditing, isEditing) &&
+            const DeepCollectionEquality()
+                .equals(other.showErrorMessages, showErrorMessages) &&
+            const DeepCollectionEquality().equals(
+                other.saveFailureOrSuccessOption, saveFailureOrSuccessOption));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, appointment, patient, isSaving,
-      isEditing, showErrorMessages, saveFailureOrSuccessOption);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(appointment),
+      const DeepCollectionEquality().hash(patient),
+      const DeepCollectionEquality().hash(isSaving),
+      const DeepCollectionEquality().hash(isEditing),
+      const DeepCollectionEquality().hash(showErrorMessages),
+      const DeepCollectionEquality().hash(saveFailureOrSuccessOption));
 
   @JsonKey(ignore: true)
   @override

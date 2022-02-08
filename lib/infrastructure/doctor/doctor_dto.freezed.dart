@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'doctor_dto.dart';
@@ -37,8 +38,8 @@ class _$DoctorDtoTearOff {
       String? profilePic,
       List<String>? certificatePics,
       String? description,
-      List<TimeSlotsDto>? timeSlotsDto,
-      List<ReviewsDto>? reviewsDto}) {
+      List<TimeSlotsDto>? timeSlots,
+      List<ReviewsDto>? reviews}) {
     return _DoctorDto(
       id: id,
       name: name,
@@ -55,8 +56,8 @@ class _$DoctorDtoTearOff {
       profilePic: profilePic,
       certificatePics: certificatePics,
       description: description,
-      timeSlotsDto: timeSlotsDto,
-      reviewsDto: reviewsDto,
+      timeSlots: timeSlots,
+      reviews: reviews,
     );
   }
 
@@ -86,8 +87,8 @@ mixin _$DoctorDto {
   String? get profilePic => throw _privateConstructorUsedError;
   List<String>? get certificatePics => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
-  List<TimeSlotsDto>? get timeSlotsDto => throw _privateConstructorUsedError;
-  List<ReviewsDto>? get reviewsDto => throw _privateConstructorUsedError;
+  List<TimeSlotsDto>? get timeSlots => throw _privateConstructorUsedError;
+  List<ReviewsDto>? get reviews => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -115,8 +116,8 @@ abstract class $DoctorDtoCopyWith<$Res> {
       String? profilePic,
       List<String>? certificatePics,
       String? description,
-      List<TimeSlotsDto>? timeSlotsDto,
-      List<ReviewsDto>? reviewsDto});
+      List<TimeSlotsDto>? timeSlots,
+      List<ReviewsDto>? reviews});
 }
 
 /// @nodoc
@@ -144,8 +145,8 @@ class _$DoctorDtoCopyWithImpl<$Res> implements $DoctorDtoCopyWith<$Res> {
     Object? profilePic = freezed,
     Object? certificatePics = freezed,
     Object? description = freezed,
-    Object? timeSlotsDto = freezed,
-    Object? reviewsDto = freezed,
+    Object? timeSlots = freezed,
+    Object? reviews = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -208,13 +209,13 @@ class _$DoctorDtoCopyWithImpl<$Res> implements $DoctorDtoCopyWith<$Res> {
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      timeSlotsDto: timeSlotsDto == freezed
-          ? _value.timeSlotsDto
-          : timeSlotsDto // ignore: cast_nullable_to_non_nullable
+      timeSlots: timeSlots == freezed
+          ? _value.timeSlots
+          : timeSlots // ignore: cast_nullable_to_non_nullable
               as List<TimeSlotsDto>?,
-      reviewsDto: reviewsDto == freezed
-          ? _value.reviewsDto
-          : reviewsDto // ignore: cast_nullable_to_non_nullable
+      reviews: reviews == freezed
+          ? _value.reviews
+          : reviews // ignore: cast_nullable_to_non_nullable
               as List<ReviewsDto>?,
     ));
   }
@@ -242,8 +243,8 @@ abstract class _$DoctorDtoCopyWith<$Res> implements $DoctorDtoCopyWith<$Res> {
       String? profilePic,
       List<String>? certificatePics,
       String? description,
-      List<TimeSlotsDto>? timeSlotsDto,
-      List<ReviewsDto>? reviewsDto});
+      List<TimeSlotsDto>? timeSlots,
+      List<ReviewsDto>? reviews});
 }
 
 /// @nodoc
@@ -272,8 +273,8 @@ class __$DoctorDtoCopyWithImpl<$Res> extends _$DoctorDtoCopyWithImpl<$Res>
     Object? profilePic = freezed,
     Object? certificatePics = freezed,
     Object? description = freezed,
-    Object? timeSlotsDto = freezed,
-    Object? reviewsDto = freezed,
+    Object? timeSlots = freezed,
+    Object? reviews = freezed,
   }) {
     return _then(_DoctorDto(
       id: id == freezed
@@ -336,13 +337,13 @@ class __$DoctorDtoCopyWithImpl<$Res> extends _$DoctorDtoCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      timeSlotsDto: timeSlotsDto == freezed
-          ? _value.timeSlotsDto
-          : timeSlotsDto // ignore: cast_nullable_to_non_nullable
+      timeSlots: timeSlots == freezed
+          ? _value.timeSlots
+          : timeSlots // ignore: cast_nullable_to_non_nullable
               as List<TimeSlotsDto>?,
-      reviewsDto: reviewsDto == freezed
-          ? _value.reviewsDto
-          : reviewsDto // ignore: cast_nullable_to_non_nullable
+      reviews: reviews == freezed
+          ? _value.reviews
+          : reviews // ignore: cast_nullable_to_non_nullable
               as List<ReviewsDto>?,
     ));
   }
@@ -367,8 +368,8 @@ class _$_DoctorDto extends _DoctorDto {
       this.profilePic,
       this.certificatePics,
       this.description,
-      this.timeSlotsDto,
-      this.reviewsDto})
+      this.timeSlots,
+      this.reviews})
       : super._();
 
   factory _$_DoctorDto.fromJson(Map<String, dynamic> json) =>
@@ -406,13 +407,13 @@ class _$_DoctorDto extends _DoctorDto {
   @override
   final String? description;
   @override
-  final List<TimeSlotsDto>? timeSlotsDto;
+  final List<TimeSlotsDto>? timeSlots;
   @override
-  final List<ReviewsDto>? reviewsDto;
+  final List<ReviewsDto>? reviews;
 
   @override
   String toString() {
-    return 'DoctorDto(id: $id, name: $name, email: $email, phoneNumber: $phoneNumber, age: $age, gender: $gender, residentialAddress: $residentialAddress, speciality: $speciality, highestQualification: $highestQualification, nameOfClinic: $nameOfClinic, location: $location, experience: $experience, profilePic: $profilePic, certificatePics: $certificatePics, description: $description, timeSlotsDto: $timeSlotsDto, reviewsDto: $reviewsDto)';
+    return 'DoctorDto(id: $id, name: $name, email: $email, phoneNumber: $phoneNumber, age: $age, gender: $gender, residentialAddress: $residentialAddress, speciality: $speciality, highestQualification: $highestQualification, nameOfClinic: $nameOfClinic, location: $location, experience: $experience, profilePic: $profilePic, certificatePics: $certificatePics, description: $description, timeSlots: $timeSlots, reviews: $reviews)';
   }
 
   @override
@@ -420,57 +421,54 @@ class _$_DoctorDto extends _DoctorDto {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _DoctorDto &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.email, email) || other.email == email) &&
-            (identical(other.phoneNumber, phoneNumber) ||
-                other.phoneNumber == phoneNumber) &&
-            (identical(other.age, age) || other.age == age) &&
-            (identical(other.gender, gender) || other.gender == gender) &&
-            (identical(other.residentialAddress, residentialAddress) ||
-                other.residentialAddress == residentialAddress) &&
-            (identical(other.speciality, speciality) ||
-                other.speciality == speciality) &&
-            (identical(other.highestQualification, highestQualification) ||
-                other.highestQualification == highestQualification) &&
-            (identical(other.nameOfClinic, nameOfClinic) ||
-                other.nameOfClinic == nameOfClinic) &&
-            (identical(other.location, location) ||
-                other.location == location) &&
-            (identical(other.experience, experience) ||
-                other.experience == experience) &&
-            (identical(other.profilePic, profilePic) ||
-                other.profilePic == profilePic) &&
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality().equals(other.email, email) &&
+            const DeepCollectionEquality()
+                .equals(other.phoneNumber, phoneNumber) &&
+            const DeepCollectionEquality().equals(other.age, age) &&
+            const DeepCollectionEquality().equals(other.gender, gender) &&
+            const DeepCollectionEquality()
+                .equals(other.residentialAddress, residentialAddress) &&
+            const DeepCollectionEquality()
+                .equals(other.speciality, speciality) &&
+            const DeepCollectionEquality()
+                .equals(other.highestQualification, highestQualification) &&
+            const DeepCollectionEquality()
+                .equals(other.nameOfClinic, nameOfClinic) &&
+            const DeepCollectionEquality().equals(other.location, location) &&
+            const DeepCollectionEquality()
+                .equals(other.experience, experience) &&
+            const DeepCollectionEquality()
+                .equals(other.profilePic, profilePic) &&
             const DeepCollectionEquality()
                 .equals(other.certificatePics, certificatePics) &&
-            (identical(other.description, description) ||
-                other.description == description) &&
             const DeepCollectionEquality()
-                .equals(other.timeSlotsDto, timeSlotsDto) &&
-            const DeepCollectionEquality()
-                .equals(other.reviewsDto, reviewsDto));
+                .equals(other.description, description) &&
+            const DeepCollectionEquality().equals(other.timeSlots, timeSlots) &&
+            const DeepCollectionEquality().equals(other.reviews, reviews));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      id,
-      name,
-      email,
-      phoneNumber,
-      age,
-      gender,
-      residentialAddress,
-      speciality,
-      highestQualification,
-      nameOfClinic,
-      location,
-      experience,
-      profilePic,
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(email),
+      const DeepCollectionEquality().hash(phoneNumber),
+      const DeepCollectionEquality().hash(age),
+      const DeepCollectionEquality().hash(gender),
+      const DeepCollectionEquality().hash(residentialAddress),
+      const DeepCollectionEquality().hash(speciality),
+      const DeepCollectionEquality().hash(highestQualification),
+      const DeepCollectionEquality().hash(nameOfClinic),
+      const DeepCollectionEquality().hash(location),
+      const DeepCollectionEquality().hash(experience),
+      const DeepCollectionEquality().hash(profilePic),
       const DeepCollectionEquality().hash(certificatePics),
-      description,
-      const DeepCollectionEquality().hash(timeSlotsDto),
-      const DeepCollectionEquality().hash(reviewsDto));
+      const DeepCollectionEquality().hash(description),
+      const DeepCollectionEquality().hash(timeSlots),
+      const DeepCollectionEquality().hash(reviews));
 
   @JsonKey(ignore: true)
   @override
@@ -500,8 +498,8 @@ abstract class _DoctorDto extends DoctorDto {
       String? profilePic,
       List<String>? certificatePics,
       String? description,
-      List<TimeSlotsDto>? timeSlotsDto,
-      List<ReviewsDto>? reviewsDto}) = _$_DoctorDto;
+      List<TimeSlotsDto>? timeSlots,
+      List<ReviewsDto>? reviews}) = _$_DoctorDto;
   const _DoctorDto._() : super._();
 
   factory _DoctorDto.fromJson(Map<String, dynamic> json) =
@@ -539,9 +537,9 @@ abstract class _DoctorDto extends DoctorDto {
   @override
   String? get description;
   @override
-  List<TimeSlotsDto>? get timeSlotsDto;
+  List<TimeSlotsDto>? get timeSlots;
   @override
-  List<ReviewsDto>? get reviewsDto;
+  List<ReviewsDto>? get reviews;
   @override
   @JsonKey(ignore: true)
   _$DoctorDtoCopyWith<_DoctorDto> get copyWith =>
@@ -558,8 +556,8 @@ class _$TimeSlotsDtoTearOff {
 
   _TimeSlotsDto call(
       {String? id,
-      DateTime? beginningTime,
-      DateTime? endingTime,
+      @TimestampConverter() DateTime? beginningTime,
+      @TimestampConverter() DateTime? endingTime,
       List<String>? days}) {
     return _TimeSlotsDto(
       id: id,
@@ -580,7 +578,9 @@ const $TimeSlotsDto = _$TimeSlotsDtoTearOff();
 /// @nodoc
 mixin _$TimeSlotsDto {
   String? get id => throw _privateConstructorUsedError;
+  @TimestampConverter()
   DateTime? get beginningTime => throw _privateConstructorUsedError;
+  @TimestampConverter()
   DateTime? get endingTime => throw _privateConstructorUsedError;
   List<String>? get days => throw _privateConstructorUsedError;
 
@@ -597,8 +597,8 @@ abstract class $TimeSlotsDtoCopyWith<$Res> {
       _$TimeSlotsDtoCopyWithImpl<$Res>;
   $Res call(
       {String? id,
-      DateTime? beginningTime,
-      DateTime? endingTime,
+      @TimestampConverter() DateTime? beginningTime,
+      @TimestampConverter() DateTime? endingTime,
       List<String>? days});
 }
 
@@ -647,8 +647,8 @@ abstract class _$TimeSlotsDtoCopyWith<$Res>
   @override
   $Res call(
       {String? id,
-      DateTime? beginningTime,
-      DateTime? endingTime,
+      @TimestampConverter() DateTime? beginningTime,
+      @TimestampConverter() DateTime? endingTime,
       List<String>? days});
 }
 
@@ -694,7 +694,10 @@ class __$TimeSlotsDtoCopyWithImpl<$Res> extends _$TimeSlotsDtoCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_TimeSlotsDto extends _TimeSlotsDto {
   const _$_TimeSlotsDto(
-      {this.id, this.beginningTime, this.endingTime, this.days})
+      {this.id,
+      @TimestampConverter() this.beginningTime,
+      @TimestampConverter() this.endingTime,
+      this.days})
       : super._();
 
   factory _$_TimeSlotsDto.fromJson(Map<String, dynamic> json) =>
@@ -703,8 +706,10 @@ class _$_TimeSlotsDto extends _TimeSlotsDto {
   @override
   final String? id;
   @override
+  @TimestampConverter()
   final DateTime? beginningTime;
   @override
+  @TimestampConverter()
   final DateTime? endingTime;
   @override
   final List<String>? days;
@@ -719,16 +724,20 @@ class _$_TimeSlotsDto extends _TimeSlotsDto {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _TimeSlotsDto &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.beginningTime, beginningTime) ||
-                other.beginningTime == beginningTime) &&
-            (identical(other.endingTime, endingTime) ||
-                other.endingTime == endingTime) &&
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality()
+                .equals(other.beginningTime, beginningTime) &&
+            const DeepCollectionEquality()
+                .equals(other.endingTime, endingTime) &&
             const DeepCollectionEquality().equals(other.days, days));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, beginningTime, endingTime,
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(beginningTime),
+      const DeepCollectionEquality().hash(endingTime),
       const DeepCollectionEquality().hash(days));
 
   @JsonKey(ignore: true)
@@ -745,8 +754,8 @@ class _$_TimeSlotsDto extends _TimeSlotsDto {
 abstract class _TimeSlotsDto extends TimeSlotsDto {
   const factory _TimeSlotsDto(
       {String? id,
-      DateTime? beginningTime,
-      DateTime? endingTime,
+      @TimestampConverter() DateTime? beginningTime,
+      @TimestampConverter() DateTime? endingTime,
       List<String>? days}) = _$_TimeSlotsDto;
   const _TimeSlotsDto._() : super._();
 
@@ -756,8 +765,10 @@ abstract class _TimeSlotsDto extends TimeSlotsDto {
   @override
   String? get id;
   @override
+  @TimestampConverter()
   DateTime? get beginningTime;
   @override
+  @TimestampConverter()
   DateTime? get endingTime;
   @override
   List<String>? get days;
@@ -775,11 +786,7 @@ ReviewsDto _$ReviewsDtoFromJson(Map<String, dynamic> json) {
 class _$ReviewsDtoTearOff {
   const _$ReviewsDtoTearOff();
 
-  _ReviewsDto call(
-      {@JsonKey(ignore: true) String? id,
-      String? name,
-      int? rating,
-      String? content}) {
+  _ReviewsDto call({String? id, String? name, int? rating, String? content}) {
     return _ReviewsDto(
       id: id,
       name: name,
@@ -798,7 +805,6 @@ const $ReviewsDto = _$ReviewsDtoTearOff();
 
 /// @nodoc
 mixin _$ReviewsDto {
-  @JsonKey(ignore: true)
   String? get id => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
   int? get rating => throw _privateConstructorUsedError;
@@ -815,11 +821,7 @@ abstract class $ReviewsDtoCopyWith<$Res> {
   factory $ReviewsDtoCopyWith(
           ReviewsDto value, $Res Function(ReviewsDto) then) =
       _$ReviewsDtoCopyWithImpl<$Res>;
-  $Res call(
-      {@JsonKey(ignore: true) String? id,
-      String? name,
-      int? rating,
-      String? content});
+  $Res call({String? id, String? name, int? rating, String? content});
 }
 
 /// @nodoc
@@ -864,11 +866,7 @@ abstract class _$ReviewsDtoCopyWith<$Res> implements $ReviewsDtoCopyWith<$Res> {
           _ReviewsDto value, $Res Function(_ReviewsDto) then) =
       __$ReviewsDtoCopyWithImpl<$Res>;
   @override
-  $Res call(
-      {@JsonKey(ignore: true) String? id,
-      String? name,
-      int? rating,
-      String? content});
+  $Res call({String? id, String? name, int? rating, String? content});
 }
 
 /// @nodoc
@@ -912,15 +910,13 @@ class __$ReviewsDtoCopyWithImpl<$Res> extends _$ReviewsDtoCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_ReviewsDto extends _ReviewsDto {
-  const _$_ReviewsDto(
-      {@JsonKey(ignore: true) this.id, this.name, this.rating, this.content})
+  const _$_ReviewsDto({this.id, this.name, this.rating, this.content})
       : super._();
 
   factory _$_ReviewsDto.fromJson(Map<String, dynamic> json) =>
       _$$_ReviewsDtoFromJson(json);
 
   @override
-  @JsonKey(ignore: true)
   final String? id;
   @override
   final String? name;
@@ -939,14 +935,19 @@ class _$_ReviewsDto extends _ReviewsDto {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _ReviewsDto &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.rating, rating) || other.rating == rating) &&
-            (identical(other.content, content) || other.content == content));
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality().equals(other.rating, rating) &&
+            const DeepCollectionEquality().equals(other.content, content));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, rating, content);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(rating),
+      const DeepCollectionEquality().hash(content));
 
   @JsonKey(ignore: true)
   @override
@@ -961,17 +962,13 @@ class _$_ReviewsDto extends _ReviewsDto {
 
 abstract class _ReviewsDto extends ReviewsDto {
   const factory _ReviewsDto(
-      {@JsonKey(ignore: true) String? id,
-      String? name,
-      int? rating,
-      String? content}) = _$_ReviewsDto;
+      {String? id, String? name, int? rating, String? content}) = _$_ReviewsDto;
   const _ReviewsDto._() : super._();
 
   factory _ReviewsDto.fromJson(Map<String, dynamic> json) =
       _$_ReviewsDto.fromJson;
 
   @override
-  @JsonKey(ignore: true)
   String? get id;
   @override
   String? get name;

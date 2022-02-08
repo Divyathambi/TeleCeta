@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'appointment_actor_bloc.dart';
@@ -161,12 +162,13 @@ class _$_Deleted implements _Deleted {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Deleted &&
-            (identical(other.appointment, appointment) ||
-                other.appointment == appointment));
+            const DeepCollectionEquality()
+                .equals(other.appointment, appointment));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, appointment);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(appointment));
 
   @JsonKey(ignore: true)
   @override
@@ -629,12 +631,13 @@ class _$_DeleteFailure implements _DeleteFailure {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _DeleteFailure &&
-            (identical(other.doctorFailures, doctorFailures) ||
-                other.doctorFailures == doctorFailures));
+            const DeepCollectionEquality()
+                .equals(other.doctorFailures, doctorFailures));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, doctorFailures);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(doctorFailures));
 
   @JsonKey(ignore: true)
   @override

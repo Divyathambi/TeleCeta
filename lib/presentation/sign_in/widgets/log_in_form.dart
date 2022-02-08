@@ -3,6 +3,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:teleceta_patients/application/sign_in/sign_in_form_bloc.dart';
+import 'package:teleceta_patients/presentation/doctor/pages/cardiologist_page.dart';
 import 'package:teleceta_patients/presentation/routes/app_router.gr.dart';
 
 class LoginForm extends StatelessWidget {
@@ -49,7 +50,7 @@ class LoginForm extends StatelessWidget {
                               "Operation Cancelled.")).show(context);
                 }, (_) {
                   AutoRouter.of(context)
-                      .popAndPush(const CardiologistPageRoute());
+                      .popAndPush(const DoctorSpecialityOverviewBodyRoute());
                 }));
       },
       builder: (context, state) {

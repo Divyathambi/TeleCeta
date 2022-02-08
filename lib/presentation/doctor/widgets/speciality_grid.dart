@@ -1,19 +1,26 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
 class SpecialityGrid extends StatelessWidget {
   final String imageUrl;
   final String title;
-  // final Function navigateToPage;
+  final PageRouteInfo route;
 
-  const SpecialityGrid({Key? key, required this.imageUrl, required this.title})
-      : super(key: key);
+  const SpecialityGrid({
+    Key? key,
+    required this.imageUrl,
+    required this.title,
+    required this.route,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 100,
       child: GestureDetector(
-        onTap: () {},
+        onTap: () {
+          AutoRouter.of(context).popAndPush(route);
+        },
         child: Card(
           semanticContainer: true,
           elevation: 4.0,
